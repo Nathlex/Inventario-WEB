@@ -13,10 +13,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/react/index.js [client] (ecmascript)");
 ;
 ;
-// Verificar que la URL de la API esté configurada correctamente
 const apiBaseUrl = ("TURBOPACK compile-time value", "http://localhost:3000") || "http://localhost:5000/";
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-;
 const apiClient = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].create({
     baseURL: apiBaseUrl,
     headers: {
@@ -31,49 +28,25 @@ apiClient.interceptors.request.use(async (config)=>{
         const token = (_this = session === null || session === void 0 ? void 0 : session.user) === null || _this === void 0 ? void 0 : _this.access_token;
         if (token) {
             config.headers["Authorization"] = "Bearer ".concat(token);
-        } else {
-            console.warn("[API] Solicitud sin token a: ".concat(config.url));
         }
         return config;
-    } catch (error) {
-        console.error("[API] Error en interceptor de solicitud:", error);
+    } catch (e) {
         return config;
     }
 });
-apiClient.interceptors.response.use((response)=>{
-    return response;
-}, (error)=>{
-    // Solo manejar errores de autenticación aquí
-    // Los demás errores (400, 409, 500, etc.) se manejarán en los componentes
+apiClient.interceptors.response.use((response)=>response, (error)=>{
     if (error.response && error.response.status === 401) {
-        console.error("[API] Error de autenticación:", error.response);
-        // Aquí podrías redirigir al login o mostrar un toast
         return Promise.reject(new Error("Sesión expirada. Vuelve a iniciar sesión."));
     }
-    // Para otros errores, solo log y rechazar el error original
-    if (error.response) {
-        console.error("[API] Error de API (".concat(error.response.status, "):"), error.response.data);
-    } else if (error.request) {
-        console.error("[API] No se recibió respuesta:", error.request);
-        // En producción, crear un error más descriptivo
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-        ;
-    } else {
-        console.error("[API] Error de Axios:", error.message);
-    }
-    // Asegurar que el error se propague correctamente
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
     return Promise.reject(error);
 });
 const api = {
     permission: {
         get: async (email)=>{
-            try {
-                const response = await apiClient.get("/permission/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener permisos para ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/permission/".concat(email));
+            return response.data;
         },
         getAll: async ()=>{
             const response = await apiClient.get("/permission");
@@ -96,13 +69,8 @@ const api = {
     },
     user: {
         verify: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/verify/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al verificar usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/verify/".concat(email));
+            return response.data;
         },
         permission: async (email)=>{
             const response = await apiClient.get("/user/permissions/".concat(email));
@@ -186,13 +154,8 @@ const api = {
             return response.data;
         },
         getUserProfile: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/profile/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener perfil de usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/profile/".concat(email));
+            return response.data;
         }
     },
     role: {
@@ -940,8 +903,8 @@ function Altas() {
                         setAssetStates(assetStatesRes);
                         setCompanies(companiesRes);
                         setSites(sitesRes);
-                    } catch (error) {
-                        console.error("Error loading catalogs:", error);
+                    } catch (e) {
+                    // Los catálogos ya manejan su fallback individual a []
                     }
                 }
             }["Altas.useEffect.loadCatalogs"];
@@ -964,8 +927,7 @@ function Altas() {
                 setAssets(list);
                 setFilteredAssets(list);
                 setTotalAssets(total);
-            } catch (error) {
-                console.error("Error fetching assets:", error);
+            } catch (e) {
                 setAssets([]);
                 setFilteredAssets([]);
                 setTotalAssets(0);
@@ -1574,12 +1536,8 @@ function Altas() {
         loadAssets();
     };
     const handleProductTypeCreated = async ()=>{
-        try {
-            const productTypesRes = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["default"].productType.getAll().catch(()=>[]);
-            setProductTypes(productTypesRes);
-        } catch (error) {
-            console.error("Error reloading product types:", error);
-        }
+        const productTypesRes = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["default"].productType.getAll().catch(()=>[]);
+        setProductTypes(productTypesRes);
     };
     const handleSelectAll = (checked)=>{
         if (checked) {
@@ -1650,8 +1608,7 @@ function Altas() {
                 type: "text/csv"
             }), "inventario_".concat(dateStr, ".csv"));
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["toast"].success("CSV exportado exitosamente");
-        } catch (error) {
-            console.error("Error exporting CSV:", error);
+        } catch (e) {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["toast"].error("Error al exportar CSV");
         } finally{
             setIsExporting(false);
@@ -1670,8 +1627,7 @@ function Altas() {
                 type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
             }), "inventario_".concat(dateStr, ".xlsx"));
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["toast"].success("Excel exportado exitosamente");
-        } catch (error) {
-            console.error("Error exporting Excel:", error);
+        } catch (e) {
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["toast"].error("Error al exportar Excel");
         } finally{
             setIsExporting(false);
@@ -1706,7 +1662,7 @@ function Altas() {
                                 onPinnedChange: setIsSearchPinned
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                lineNumber: 674,
+                                lineNumber: 667,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1722,7 +1678,7 @@ function Altas() {
                                         children: "Nuevo"
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 686,
+                                        lineNumber: 679,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -1739,18 +1695,18 @@ function Altas() {
                                                             className: "h-4 w-4 ml-1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                                            lineNumber: 704,
+                                                            lineNumber: 697,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 702,
+                                                    lineNumber: 695,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                lineNumber: 701,
+                                                lineNumber: 694,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -1764,14 +1720,14 @@ function Altas() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                                lineNumber: 709,
+                                                                lineNumber: 702,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Exportar a CSV"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 708,
+                                                        lineNumber: 701,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1782,19 +1738,19 @@ function Altas() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                                lineNumber: 713,
+                                                                lineNumber: 706,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Exportar a Excel"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 712,
+                                                        lineNumber: 705,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 716,
+                                                        lineNumber: 709,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1804,19 +1760,19 @@ function Altas() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                                lineNumber: 718,
+                                                                lineNumber: 711,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Import from CSV"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 717,
+                                                        lineNumber: 710,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 721,
+                                                        lineNumber: 714,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -1826,32 +1782,32 @@ function Altas() {
                                                                 className: "h-4 w-4 mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                                lineNumber: 723,
+                                                                lineNumber: 716,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Refresh"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 722,
+                                                        lineNumber: 715,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                lineNumber: 707,
+                                                lineNumber: 700,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 700,
+                                        lineNumber: 693,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                lineNumber: 685,
+                                lineNumber: 678,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1873,12 +1829,12 @@ function Altas() {
                                                 children: size
                                             }, size, false, {
                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                lineNumber: 741,
+                                                lineNumber: 734,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 732,
+                                        lineNumber: 725,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1892,7 +1848,7 @@ function Altas() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 746,
+                                        lineNumber: 739,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1905,12 +1861,12 @@ function Altas() {
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                            lineNumber: 756,
+                                            lineNumber: 749,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 749,
+                                        lineNumber: 742,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -1923,24 +1879,24 @@ function Altas() {
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                            lineNumber: 765,
+                                            lineNumber: 758,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 758,
+                                        lineNumber: 751,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                lineNumber: 731,
+                                lineNumber: 724,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 672,
+                        lineNumber: 665,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1951,12 +1907,12 @@ function Altas() {
                                 className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
                             }, void 0, false, {
                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                lineNumber: 774,
+                                lineNumber: 767,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/pages/altas/index.tsx",
-                            lineNumber: 773,
+                            lineNumber: 766,
                             columnNumber: 15
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["Table"], {
                             style: {
@@ -1973,13 +1929,13 @@ function Altas() {
                                             }
                                         }, key, false, {
                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                            lineNumber: 780,
+                                            lineNumber: 773,
                                             columnNumber: 21
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                    lineNumber: 778,
+                                    lineNumber: 771,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableHeader"], {
@@ -2046,23 +2002,23 @@ function Altas() {
                                                         className: "absolute right-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-blue-400 active:bg-blue-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 807,
+                                                        lineNumber: 800,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, col.key, true, {
                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                lineNumber: 800,
+                                                lineNumber: 793,
                                                 columnNumber: 23
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 785,
+                                        lineNumber: 778,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                    lineNumber: 784,
+                                    lineNumber: 777,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -2073,12 +2029,12 @@ function Altas() {
                                             children: "No se encontraron activos"
                                         }, void 0, false, {
                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                            lineNumber: 820,
+                                            lineNumber: 813,
                                             columnNumber: 23
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                        lineNumber: 819,
+                                        lineNumber: 812,
                                         columnNumber: 21
                                     }, this) : paginatedAssets.map((asset)=>{
                                         var _asset_assetStateInfo, _asset_company, _asset_company1, _asset_site, _asset_site1, _asset_depart, _asset_depart1, _asset_user, _asset_user1, _asset_productType, _asset_productType1, _asset_assetDetail, _asset_assetDetail1, _asset_assetDetail2, _asset_assetDetail3, _asset_assetDetail4, _asset_assetDetail5, _asset_assetStateInfo1;
@@ -2091,7 +2047,7 @@ function Altas() {
                                                     className: "overflow-hidden text-ellipsis whitespace-nowrap"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 837,
+                                                    lineNumber: 830,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2110,22 +2066,22 @@ function Altas() {
                                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["cn"])("h-4 w-4", isEditDisabled ? "text-gray-300" : "text-gray-400 hover:text-amber-600")
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/pages/altas/index.tsx",
-                                                                lineNumber: 860,
+                                                                lineNumber: 853,
                                                                 columnNumber: 31
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                                            lineNumber: 842,
+                                                            lineNumber: 835,
                                                             columnNumber: 29
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 841,
+                                                        lineNumber: 834,
                                                         columnNumber: 27
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 840,
+                                                    lineNumber: 833,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2140,12 +2096,12 @@ function Altas() {
                                                         children: asset.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 866,
+                                                        lineNumber: 859,
                                                         columnNumber: 27
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 865,
+                                                    lineNumber: 858,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2154,7 +2110,7 @@ function Altas() {
                                                     children: ((_asset_company1 = asset.company) === null || _asset_company1 === void 0 ? void 0 : _asset_company1.description) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 878,
+                                                    lineNumber: 871,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2163,7 +2119,7 @@ function Altas() {
                                                     children: ((_asset_site1 = asset.site) === null || _asset_site1 === void 0 ? void 0 : _asset_site1.name) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 881,
+                                                    lineNumber: 874,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2172,7 +2128,7 @@ function Altas() {
                                                     children: ((_asset_depart1 = asset.depart) === null || _asset_depart1 === void 0 ? void 0 : _asset_depart1.Name) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 884,
+                                                    lineNumber: 877,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2181,7 +2137,7 @@ function Altas() {
                                                     children: ((_asset_user1 = asset.user) === null || _asset_user1 === void 0 ? void 0 : _asset_user1.name) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 887,
+                                                    lineNumber: 880,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2190,7 +2146,7 @@ function Altas() {
                                                     children: ((_asset_productType1 = asset.productType) === null || _asset_productType1 === void 0 ? void 0 : _asset_productType1.name) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 890,
+                                                    lineNumber: 883,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2199,7 +2155,7 @@ function Altas() {
                                                     children: ((_asset_assetDetail1 = asset.assetDetail) === null || _asset_assetDetail1 === void 0 ? void 0 : _asset_assetDetail1.productManuf) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 893,
+                                                    lineNumber: 886,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2208,7 +2164,7 @@ function Altas() {
                                                     children: ((_asset_assetDetail3 = asset.assetDetail) === null || _asset_assetDetail3 === void 0 ? void 0 : _asset_assetDetail3.model) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 896,
+                                                    lineNumber: 889,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2217,7 +2173,7 @@ function Altas() {
                                                     children: ((_asset_assetDetail5 = asset.assetDetail) === null || _asset_assetDetail5 === void 0 ? void 0 : _asset_assetDetail5.serialNum) || "-"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 899,
+                                                    lineNumber: 892,
                                                     columnNumber: 25
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$table$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2227,35 +2183,35 @@ function Altas() {
                                                         children: ((_asset_assetStateInfo1 = asset.assetStateInfo) === null || _asset_assetStateInfo1 === void 0 ? void 0 : _asset_assetStateInfo1.name) || "-"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/pages/altas/index.tsx",
-                                                        lineNumber: 903,
+                                                        lineNumber: 896,
                                                         columnNumber: 27
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                                    lineNumber: 902,
+                                                    lineNumber: 895,
                                                     columnNumber: 25
                                                 }, this)
                                             ]
                                         }, asset.assetID, true, {
                                             fileName: "[project]/src/pages/altas/index.tsx",
-                                            lineNumber: 829,
+                                            lineNumber: 822,
                                             columnNumber: 23
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/src/pages/altas/index.tsx",
-                                    lineNumber: 817,
+                                    lineNumber: 810,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/pages/altas/index.tsx",
-                            lineNumber: 777,
+                            lineNumber: 770,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 771,
+                        lineNumber: 764,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CreateAssetModal$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["CreateAssetModal"], {
@@ -2270,7 +2226,7 @@ function Altas() {
                         onProductTypeCreated: handleProductTypeCreated
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 917,
+                        lineNumber: 910,
                         columnNumber: 11
                     }, this),
                     editingAsset && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$EditAssetModal$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["EditAssetModal"], {
@@ -2289,7 +2245,7 @@ function Altas() {
                         onOpenAssignment: handleOpenAssignment
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 931,
+                        lineNumber: 924,
                         columnNumber: 13
                     }, this),
                     detailAssetID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AssetDetailModal$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["AssetDetailModal"], {
@@ -2304,7 +2260,7 @@ function Altas() {
                         onOpenDeliveryReport: handleOpenDeliveryReport
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 950,
+                        lineNumber: 943,
                         columnNumber: 13
                     }, this),
                     assignmentAssetID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AssetAssignmentModal$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["AssetAssignmentModal"], {
@@ -2317,7 +2273,7 @@ function Altas() {
                         onSuccess: loadAssets
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 965,
+                        lineNumber: 958,
                         columnNumber: 13
                     }, this),
                     deliveryAssetID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$DeliveryReportModal$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DeliveryReportModal"], {
@@ -2329,18 +2285,18 @@ function Altas() {
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/pages/altas/index.tsx",
-                        lineNumber: 978,
+                        lineNumber: 971,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/pages/altas/index.tsx",
-                lineNumber: 670,
+                lineNumber: 663,
                 columnNumber: 9
             }, this)
     }, void 0, false, {
         fileName: "[project]/src/pages/altas/index.tsx",
-        lineNumber: 666,
+        lineNumber: 659,
         columnNumber: 5
     }, this);
 }

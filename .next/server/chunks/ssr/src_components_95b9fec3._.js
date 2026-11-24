@@ -1541,23 +1541,8 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 function NavUser({ user }) {
     const { isMobile } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["useSidebar"])();
-    const [userProfile, setUserProfile] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
-    /*useEffect(() => {
-    const fetchUserProfile = async () => {
-      if (!user.email) return;
-      
-      try {
-        const response = await api.user.getUserProfile(user.email// 'arendon@hotel-shops.com'//);
-        if (response.success) {
-          setUserProfile(response.data);
-        }
-      } catch (error) {
-        console.error('Error al cargar perfil de usuario:', error);
-      }
-    };
-
-    fetchUserProfile();
-  }, [user.email]);*/ const userInitials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["getInitials"])(user.name);
+    const [userProfile] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
+    const userInitials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["getInitials"])(user.name);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SidebarMenu"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SidebarMenuItem"], {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -1576,7 +1561,7 @@ function NavUser({ user }) {
                                             alt: user.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 78,
+                                            lineNumber: 61,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -1584,13 +1569,13 @@ function NavUser({ user }) {
                                             children: "HS"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 79,
+                                            lineNumber: 62,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 77,
+                                    lineNumber: 60,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1601,7 +1586,7 @@ function NavUser({ user }) {
                                             children: user.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 65,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1609,31 +1594,31 @@ function NavUser({ user }) {
                                             children: user.email
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 83,
+                                            lineNumber: 66,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 64,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__["ChevronsUpDown"], {
                                     className: "ml-auto size-4"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/nav-user.tsx",
-                            lineNumber: 73,
+                            lineNumber: 56,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/nav-user.tsx",
-                        lineNumber: 72,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -1655,7 +1640,7 @@ function NavUser({ user }) {
                                                     alt: user.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 100,
+                                                    lineNumber: 83,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -1663,13 +1648,13 @@ function NavUser({ user }) {
                                                     children: userInitials
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 101,
+                                                    lineNumber: 84,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 99,
+                                            lineNumber: 82,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1680,7 +1665,7 @@ function NavUser({ user }) {
                                                     children: user.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 87,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1688,7 +1673,7 @@ function NavUser({ user }) {
                                                     children: user.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 88,
                                                     columnNumber: 19
                                                 }, this),
                                                 userProfile?.userInfo?.buyerID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1699,29 +1684,29 @@ function NavUser({ user }) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 107,
+                                                    lineNumber: 90,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 103,
+                                            lineNumber: 86,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 81,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 97,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 112,
+                                lineNumber: 95,
                                 columnNumber: 13
                             }, this),
                             userProfile?.companies && userProfile.companies.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
@@ -1734,7 +1719,7 @@ function NavUser({ user }) {
                                                 children: "Compañías asociadas"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/nav-user.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 101,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1744,23 +1729,23 @@ function NavUser({ user }) {
                                                         children: company
                                                     }, company, false, {
                                                         fileName: "[project]/src/components/nav-user.tsx",
-                                                        lineNumber: 121,
+                                                        lineNumber: 104,
                                                         columnNumber: 23
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/nav-user.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 102,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 100,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 127,
+                                        lineNumber: 110,
                                         columnNumber: 17
                                     }, this)
                                 ]
@@ -1773,36 +1758,36 @@ function NavUser({ user }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {}, void 0, false, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this),
                                     "Log out"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 131,
+                                lineNumber: 114,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/nav-user.tsx",
-                        lineNumber: 91,
+                        lineNumber: 74,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/nav-user.tsx",
-                lineNumber: 71,
+                lineNumber: 54,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/nav-user.tsx",
-            lineNumber: 70,
+            lineNumber: 53,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/nav-user.tsx",
-        lineNumber: 69,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
@@ -2738,7 +2723,6 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
             onSuccess(response.data);
             onClose();
         } catch (error) {
-            console.error("Error al crear tipo de activo:", error);
             if (error && typeof error === "object" && "response" in error) {
                 const axiosError = error;
                 const status = axiosError.response.status;
@@ -2786,7 +2770,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     className: "h-5 w-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 147,
+                                    lineNumber: 145,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -2794,13 +2778,13 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     children: "Crear Tipo de Activo"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 148,
+                                    lineNumber: 146,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 146,
+                            lineNumber: 144,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2813,18 +2797,18 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                 className: "h-4 w-4"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                lineNumber: 151,
+                                lineNumber: 149,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 150,
+                            lineNumber: 148,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                    lineNumber: 145,
+                    lineNumber: 143,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
@@ -2839,7 +2823,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     children: "Nombre del Tipo de Activo *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 155,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -2851,7 +2835,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 158,
+                                    lineNumber: 156,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -2859,13 +2843,13 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     children: errors.name
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 157,
                                     columnNumber: 29
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 156,
+                            lineNumber: 154,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -2875,7 +2859,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     children: "Grupo *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 163,
+                                    lineNumber: 161,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 errors.group && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -2883,7 +2867,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                     children: errors.group
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 164,
+                                    lineNumber: 162,
                                     columnNumber: 30
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -2901,7 +2885,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                                         children: groupIcons[group]
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                                        lineNumber: 172,
+                                                        lineNumber: 170,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -2911,7 +2895,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                                                 children: group
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                                                lineNumber: 174,
+                                                                lineNumber: 172,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -2919,41 +2903,41 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                                                                 children: groupDescriptions[group]
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                                                lineNumber: 175,
+                                                                lineNumber: 173,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                                        lineNumber: 173,
+                                                        lineNumber: 171,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                                lineNumber: 171,
+                                                lineNumber: 169,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, group, false, {
                                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 165,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                                    lineNumber: 165,
+                                    lineNumber: 163,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 162,
+                            lineNumber: 160,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                    lineNumber: 155,
+                    lineNumber: 153,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -2968,7 +2952,7 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                             children: "Cancelar"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 186,
+                            lineNumber: 184,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2979,24 +2963,24 @@ const CreateProductTypeModal = ({ isOpen, onClose, onSuccess })=>{
                             children: isLoading ? "Creando..." : "Crear Tipo de Activo"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                            lineNumber: 187,
+                            lineNumber: 185,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-                    lineNumber: 185,
+                    lineNumber: 183,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-            lineNumber: 144,
+            lineNumber: 142,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/CreateProductTypeModal.tsx",
-        lineNumber: 143,
+        lineNumber: 141,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -3149,7 +3133,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
     // Cargar departamentos al abrir el modal
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         if (isOpen) {
-            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["default"].user.getDepartments().then(setDepartments).catch(console.error);
+            __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["default"].user.getDepartments().then(setDepartments).catch(()=>setDepartments([]));
         }
     }, [
         isOpen
@@ -3236,8 +3220,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
             setUserSearchResults(results);
             setOmniboxMode("results");
             setOmniboxDropdownOpen(true);
-        } catch (error) {
-            console.error("Error al buscar usuarios:", error);
+        } catch  {
             setUserSearchResults([]);
         } finally{
             setIsSearchingUsers(false);
@@ -3463,7 +3446,6 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
             onSuccess();
             onClose();
         } catch (error) {
-            console.error("Error al crear activo:", error);
             if (error && typeof error === "object" && "response" in error) {
                 const axiosError = error;
                 const status = axiosError.response.status;
@@ -3553,7 +3535,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                 children: "Selecciona un tipo de activo para ver los campos disponibles"
             }, void 0, false, {
                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                lineNumber: 546,
+                lineNumber: 543,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0));
         }
@@ -3567,7 +3549,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                             children: "Identificacion"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 556,
+                            lineNumber: 553,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3581,7 +3563,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Fabricante"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 561,
+                                            lineNumber: 558,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3592,13 +3574,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 564,
+                                            lineNumber: 561,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 560,
+                                    lineNumber: 557,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3609,7 +3591,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Modelo"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 574,
+                                            lineNumber: 571,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3620,13 +3602,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 577,
+                                            lineNumber: 574,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 573,
+                                    lineNumber: 570,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3637,7 +3619,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Numero de Serie"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 587,
+                                            lineNumber: 584,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3648,13 +3630,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 590,
+                                            lineNumber: 587,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 586,
+                                    lineNumber: 583,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3665,7 +3647,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Asset TAG"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 600,
+                                            lineNumber: 597,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3676,7 +3658,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             readOnly: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 603,
+                                            lineNumber: 600,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -3684,25 +3666,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Se asigna automaticamente al guardar, segun el tipo de producto y el numero consecutivo."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 614,
+                                            lineNumber: 611,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 599,
+                                    lineNumber: 596,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 559,
+                            lineNumber: 556,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                    lineNumber: 555,
+                    lineNumber: 552,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 (productTypeGroup === "Equipo" || productTypeGroup === "Otros") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
@@ -3714,7 +3696,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Red y Acceso"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 627,
+                                    lineNumber: 624,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3728,7 +3710,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Direccion IP"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 632,
+                                                    lineNumber: 629,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3739,13 +3721,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 635,
+                                                    lineNumber: 632,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 631,
+                                            lineNumber: 628,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3756,7 +3738,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Direccion MAC"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 645,
+                                                    lineNumber: 642,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3767,13 +3749,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 648,
+                                                    lineNumber: 645,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 644,
+                                            lineNumber: 641,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3784,7 +3766,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Dominio"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 658,
+                                                    lineNumber: 655,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3795,25 +3777,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 661,
+                                                    lineNumber: 658,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 657,
+                                            lineNumber: 654,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 630,
+                                    lineNumber: 627,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 626,
+                            lineNumber: 623,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3823,7 +3805,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Procesamiento"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 674,
+                                    lineNumber: 671,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3837,7 +3819,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Procesador"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 679,
+                                                    lineNumber: 676,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3848,13 +3830,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 682,
+                                                    lineNumber: 679,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 678,
+                                            lineNumber: 675,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3865,7 +3847,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Velocidad del Procesador"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 692,
+                                                    lineNumber: 689,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -3876,25 +3858,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 695,
+                                                    lineNumber: 692,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 691,
+                                            lineNumber: 688,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 677,
+                                    lineNumber: 674,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 673,
+                            lineNumber: 670,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3904,7 +3886,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Memoria"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 708,
+                                    lineNumber: 705,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -3918,7 +3900,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Memoria RAM"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 713,
+                                                    lineNumber: 710,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -3931,12 +3913,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 placeholder: "Seleccionar capacidad"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 722,
+                                                                lineNumber: 719,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 721,
+                                                            lineNumber: 718,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -3946,7 +3928,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "Seleccionar capacidad"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 725,
+                                                                    lineNumber: 722,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3954,7 +3936,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "2 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 726,
+                                                                    lineNumber: 723,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3962,7 +3944,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "4 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 727,
+                                                                    lineNumber: 724,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3970,7 +3952,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "8 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 728,
+                                                                    lineNumber: 725,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3978,7 +3960,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "16 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 729,
+                                                                    lineNumber: 726,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3986,7 +3968,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "32 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 730,
+                                                                    lineNumber: 727,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -3994,7 +3976,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "64 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 731,
+                                                                    lineNumber: 728,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4002,25 +3984,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "128 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 732,
+                                                                    lineNumber: 729,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 724,
+                                                            lineNumber: 721,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 716,
+                                                    lineNumber: 713,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 712,
+                                            lineNumber: 709,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4031,7 +4013,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Tipo de Memoria"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 738,
+                                                    lineNumber: 735,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4044,12 +4026,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 placeholder: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 747,
+                                                                lineNumber: 744,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 746,
+                                                            lineNumber: 743,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4059,7 +4041,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "Seleccionar tipo"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 750,
+                                                                    lineNumber: 747,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4067,7 +4049,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "DDR3"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 751,
+                                                                    lineNumber: 748,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4075,7 +4057,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "DDR4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 752,
+                                                                    lineNumber: 749,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4083,37 +4065,37 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "DDR5"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 753,
+                                                                    lineNumber: 750,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 749,
+                                                            lineNumber: 746,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 741,
+                                                    lineNumber: 738,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 737,
+                                            lineNumber: 734,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 711,
+                                    lineNumber: 708,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 707,
+                            lineNumber: 704,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4123,7 +4105,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Almacenamiento"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 762,
+                                    lineNumber: 759,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4137,7 +4119,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Capacidad de Disco"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 768,
+                                                    lineNumber: 765,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4150,12 +4132,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 placeholder: "Seleccionar capacidad"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 777,
+                                                                lineNumber: 774,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 776,
+                                                            lineNumber: 773,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4165,7 +4147,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "Seleccionar capacidad"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 780,
+                                                                    lineNumber: 777,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4173,7 +4155,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "128 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 781,
+                                                                    lineNumber: 778,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4181,7 +4163,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "256 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 782,
+                                                                    lineNumber: 779,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4189,7 +4171,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "512 GB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 783,
+                                                                    lineNumber: 780,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4197,7 +4179,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "1 TB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 784,
+                                                                    lineNumber: 781,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4205,7 +4187,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "2 TB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 785,
+                                                                    lineNumber: 782,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4213,7 +4195,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "4 TB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 786,
+                                                                    lineNumber: 783,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4221,25 +4203,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "8 TB"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 787,
+                                                                    lineNumber: 784,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 779,
+                                                            lineNumber: 776,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 771,
+                                                    lineNumber: 768,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 767,
+                                            lineNumber: 764,
                                             columnNumber: 18
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4250,7 +4232,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Tipo de Disco"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 793,
+                                                    lineNumber: 790,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4263,12 +4245,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 placeholder: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 802,
+                                                                lineNumber: 799,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 801,
+                                                            lineNumber: 798,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4278,7 +4260,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "Seleccionar tipo"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 805,
+                                                                    lineNumber: 802,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4286,7 +4268,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "HDD"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 806,
+                                                                    lineNumber: 803,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4294,7 +4276,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "SSD"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 807,
+                                                                    lineNumber: 804,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4302,37 +4284,37 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "NVME"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 808,
+                                                                    lineNumber: 805,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 804,
+                                                            lineNumber: 801,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 796,
+                                                    lineNumber: 793,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 792,
+                                            lineNumber: 789,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 765,
+                                    lineNumber: 762,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 761,
+                            lineNumber: 758,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4342,7 +4324,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Software"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 817,
+                                    lineNumber: 814,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4355,7 +4337,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                 children: "Sistema Operativo"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                lineNumber: 822,
+                                                lineNumber: 819,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4368,12 +4350,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             placeholder: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 831,
+                                                            lineNumber: 828,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 830,
+                                                        lineNumber: 827,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4383,7 +4365,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 children: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 834,
+                                                                lineNumber: 831,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4391,7 +4373,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 children: "Windows 7"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 835,
+                                                                lineNumber: 832,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4399,7 +4381,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 children: "Windows 8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 836,
+                                                                lineNumber: 833,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4407,7 +4389,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 children: "Windows 10"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 837,
+                                                                lineNumber: 834,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4415,36 +4397,36 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                 children: "Windows 11"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                lineNumber: 838,
+                                                                lineNumber: 835,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 833,
+                                                        lineNumber: 830,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                lineNumber: 825,
+                                                lineNumber: 822,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                        lineNumber: 821,
+                                        lineNumber: 818,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 820,
+                                    lineNumber: 817,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 816,
+                            lineNumber: 813,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -4462,7 +4444,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Memoria RAM"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 854,
+                                            lineNumber: 851,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4475,12 +4457,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                         placeholder: "Seleccionar capacidad"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 863,
+                                                        lineNumber: 860,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 862,
+                                                    lineNumber: 859,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4490,7 +4472,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Seleccionar capacidad"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 866,
+                                                            lineNumber: 863,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4498,7 +4480,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "2 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 867,
+                                                            lineNumber: 864,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4506,7 +4488,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "4 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 868,
+                                                            lineNumber: 865,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4514,7 +4496,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "8 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 869,
+                                                            lineNumber: 866,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4522,7 +4504,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "16 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 870,
+                                                            lineNumber: 867,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4530,7 +4512,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "32 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 871,
+                                                            lineNumber: 868,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4538,7 +4520,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "64 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 872,
+                                                            lineNumber: 869,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4546,25 +4528,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "128 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 873,
+                                                            lineNumber: 870,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 865,
+                                                    lineNumber: 862,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 857,
+                                            lineNumber: 854,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 853,
+                                    lineNumber: 850,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4575,7 +4557,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Tipo de Memoria"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 879,
+                                            lineNumber: 876,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4588,12 +4570,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                         placeholder: "Seleccionar tipo"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 888,
+                                                        lineNumber: 885,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 887,
+                                                    lineNumber: 884,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4603,7 +4585,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 891,
+                                                            lineNumber: 888,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4611,7 +4593,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "DDR3"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 892,
+                                                            lineNumber: 889,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4619,7 +4601,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "DDR4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 893,
+                                                            lineNumber: 890,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4627,31 +4609,31 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "DDR5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 894,
+                                                            lineNumber: 891,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 890,
+                                                    lineNumber: 887,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 882,
+                                            lineNumber: 879,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 878,
+                                    lineNumber: 875,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 852,
+                            lineNumber: 849,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4665,7 +4647,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Capacidad de Disco"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 903,
+                                            lineNumber: 900,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4678,12 +4660,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                         placeholder: "Seleccionar capacidad"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 912,
+                                                        lineNumber: 909,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 911,
+                                                    lineNumber: 908,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4693,7 +4675,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Seleccionar capacidad"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 915,
+                                                            lineNumber: 912,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4701,7 +4683,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "128 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 916,
+                                                            lineNumber: 913,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4709,7 +4691,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "256 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 917,
+                                                            lineNumber: 914,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4717,7 +4699,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "512 GB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 918,
+                                                            lineNumber: 915,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4725,7 +4707,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "1 TB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 919,
+                                                            lineNumber: 916,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4733,7 +4715,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "2 TB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 920,
+                                                            lineNumber: 917,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4741,7 +4723,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "4 TB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 921,
+                                                            lineNumber: 918,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4749,25 +4731,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "8 TB"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 922,
+                                                            lineNumber: 919,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 914,
+                                                    lineNumber: 911,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 906,
+                                            lineNumber: 903,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 902,
+                                    lineNumber: 899,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4778,7 +4760,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Tipo de Disco"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 928,
+                                            lineNumber: 925,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -4791,12 +4773,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                         placeholder: "Seleccionar tipo"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                        lineNumber: 937,
+                                                        lineNumber: 934,
                                                         columnNumber: 23
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 936,
+                                                    lineNumber: 933,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4806,7 +4788,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 940,
+                                                            lineNumber: 937,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4814,7 +4796,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "HDD"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 941,
+                                                            lineNumber: 938,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4822,7 +4804,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "SSD"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 942,
+                                                            lineNumber: 939,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4830,31 +4812,31 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "NVME"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 943,
+                                                            lineNumber: 940,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 939,
+                                                    lineNumber: 936,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 931,
+                                            lineNumber: 928,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 927,
+                                    lineNumber: 924,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 900,
+                            lineNumber: 897,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4865,7 +4847,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Serial HDD/SSD"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 950,
+                                    lineNumber: 947,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4876,13 +4858,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 953,
+                                    lineNumber: 950,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 949,
+                            lineNumber: 946,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -4897,7 +4879,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "IMEI"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 968,
+                                    lineNumber: 965,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4908,13 +4890,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 971,
+                                    lineNumber: 968,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 967,
+                            lineNumber: 964,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4925,7 +4907,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Plataforma"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 981,
+                                    lineNumber: 978,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4936,13 +4918,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 984,
+                                    lineNumber: 981,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 980,
+                            lineNumber: 977,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4953,7 +4935,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Nombre SO"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 994,
+                                    lineNumber: 991,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4964,13 +4946,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 997,
+                                    lineNumber: 994,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 993,
+                            lineNumber: 990,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -4981,7 +4963,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Version SO"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1007,
+                                    lineNumber: 1004,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -4992,13 +4974,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     disabled: isLoading
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1010,
+                                    lineNumber: 1007,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 1006,
+                            lineNumber: 1003,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -5006,7 +4988,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/CreateAssetModal.tsx",
-            lineNumber: 553,
+            lineNumber: 550,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     };
@@ -5028,7 +5010,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             className: "h-5 w-5 text-blue-600"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1033,
+                                            lineNumber: 1030,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -5036,13 +5018,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Registrar Nuevo Activo"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1034,
+                                            lineNumber: 1031,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1032,
+                                    lineNumber: 1029,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -5054,13 +5036,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "X"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1036,
+                                    lineNumber: 1033,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 1031,
+                            lineNumber: 1028,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
@@ -5075,7 +5057,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                             children: "Informacion Basica"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1052,
+                                            lineNumber: 1049,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5089,7 +5071,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Nombre del Activo *"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1058,
+                                                            lineNumber: 1055,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5101,7 +5083,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1061,
+                                                            lineNumber: 1058,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5109,13 +5091,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: errors.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1069,
+                                                            lineNumber: 1066,
                                                             columnNumber: 35
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1057,
+                                                    lineNumber: 1054,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5129,7 +5111,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "Tipo de Activo *"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1075,
+                                                                    lineNumber: 1072,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -5143,20 +5125,20 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             className: "h-3 w-3 mr-1"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1085,
+                                                                            lineNumber: 1082,
                                                                             columnNumber: 23
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         "Crear Tipo de Activo"
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1078,
+                                                                    lineNumber: 1075,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1074,
+                                                            lineNumber: 1071,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -5170,12 +5152,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                         placeholder: "Seleccionar tipo"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                        lineNumber: 1095,
+                                                                        lineNumber: 1092,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1094,
+                                                                    lineNumber: 1091,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -5185,7 +5167,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "Seleccionar tipo"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1098,
+                                                                            lineNumber: 1095,
                                                                             columnNumber: 23
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         localProductTypes.map((pt)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -5198,19 +5180,19 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                 ]
                                                                             }, pt.productTypeID, true, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1100,
+                                                                                lineNumber: 1097,
                                                                                 columnNumber: 25
                                                                             }, ("TURBOPACK compile-time value", void 0)))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1097,
+                                                                    lineNumber: 1094,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1089,
+                                                            lineNumber: 1086,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.productTypeID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5218,7 +5200,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: errors.productTypeID
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1106,
+                                                            lineNumber: 1103,
                                                             columnNumber: 44
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         localProductTypes.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5226,13 +5208,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "No hay tipos de activo disponibles. Crea uno nuevo."
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1108,
+                                                            lineNumber: 1105,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1073,
+                                                    lineNumber: 1070,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5243,7 +5225,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Proveedor *"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1116,
+                                                            lineNumber: 1113,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -5257,12 +5239,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                         placeholder: "Seleccionar proveedor"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                        lineNumber: 1125,
+                                                                        lineNumber: 1122,
                                                                         columnNumber: 23
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1124,
+                                                                    lineNumber: 1121,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -5272,7 +5254,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "Seleccionar proveedor"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1128,
+                                                                            lineNumber: 1125,
                                                                             columnNumber: 23
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         vendors.map((vendor)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -5280,19 +5262,19 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                 children: vendor.name
                                                                             }, vendor.vendorID, false, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1130,
+                                                                                lineNumber: 1127,
                                                                                 columnNumber: 25
                                                                             }, ("TURBOPACK compile-time value", void 0)))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1127,
+                                                                    lineNumber: 1124,
                                                                     columnNumber: 21
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1119,
+                                                            lineNumber: 1116,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.vendorID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5300,13 +5282,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: errors.vendorID
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1136,
+                                                            lineNumber: 1133,
                                                             columnNumber: 39
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1115,
+                                                    lineNumber: 1112,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5317,7 +5299,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Estado"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1141,
+                                                            lineNumber: 1138,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5325,7 +5307,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Stock"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1144,
+                                                            lineNumber: 1141,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5333,13 +5315,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Se asigna automaticamente al crear"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1147,
+                                                            lineNumber: 1144,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1140,
+                                                    lineNumber: 1137,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5354,13 +5336,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "*"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1152,
+                                                                    lineNumber: 1149,
                                                                     columnNumber: 27
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1151,
+                                                            lineNumber: 1148,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5372,7 +5354,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1154,
+                                                            lineNumber: 1151,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.factura && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5380,13 +5362,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: errors.factura
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1162,
+                                                            lineNumber: 1159,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1150,
+                                                    lineNumber: 1147,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5401,13 +5383,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     children: "*"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1168,
+                                                                    lineNumber: 1165,
                                                                     columnNumber: 28
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1167,
+                                                            lineNumber: 1164,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5419,7 +5401,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1170,
+                                                            lineNumber: 1167,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.ticket && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5427,25 +5409,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: errors.ticket
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1178,
+                                                            lineNumber: 1175,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1166,
+                                                    lineNumber: 1163,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1055,
+                                            lineNumber: 1052,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1051,
+                                    lineNumber: 1048,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5463,7 +5445,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             className: "h-4 w-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1194,
+                                                            lineNumber: 1191,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         "Asignar Usuario",
@@ -5476,32 +5458,32 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1197,
+                                                            lineNumber: 1194,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1193,
+                                                    lineNumber: 1190,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 showUserAssignment ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1202,
+                                                    lineNumber: 1199,
                                                     columnNumber: 39
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1202,
+                                                    lineNumber: 1199,
                                                     columnNumber: 75
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1188,
+                                            lineNumber: 1185,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         showUserAssignment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5520,7 +5502,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: selectedUser.name
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1212,
+                                                                            lineNumber: 1209,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5528,7 +5510,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: selectedUser.email
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1213,
+                                                                            lineNumber: 1210,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         selectedUser.departmentName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5536,13 +5518,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: selectedUser.departmentName
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1215,
+                                                                            lineNumber: 1212,
                                                                             columnNumber: 29
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1211,
+                                                                    lineNumber: 1208,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -5555,18 +5537,18 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                         className: "h-4 w-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                        lineNumber: 1225,
+                                                                        lineNumber: 1222,
                                                                         columnNumber: 27
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1218,
+                                                                    lineNumber: 1215,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1210,
+                                                            lineNumber: 1207,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5581,14 +5563,14 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                     className: "h-3.5 w-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                    lineNumber: 1233,
+                                                                                    lineNumber: 1230,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 "Fecha de Asignacion"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1232,
+                                                                            lineNumber: 1229,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5598,7 +5580,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             className: "bg-gray-50 text-gray-600 cursor-not-allowed"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1236,
+                                                                            lineNumber: 1233,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5606,13 +5588,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "Fecha actual (no modificable)"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1242,
+                                                                            lineNumber: 1239,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1231,
+                                                                    lineNumber: 1228,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5624,14 +5606,14 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                     className: "h-3.5 w-3.5"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                    lineNumber: 1246,
+                                                                                    lineNumber: 1243,
                                                                                     columnNumber: 29
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 "Fecha de Devolucion"
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1245,
+                                                                            lineNumber: 1242,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -5642,25 +5624,25 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             disabled: isLoading
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1249,
+                                                                            lineNumber: 1246,
                                                                             columnNumber: 27
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1244,
+                                                                    lineNumber: 1241,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1230,
+                                                            lineNumber: 1227,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1209,
+                                                    lineNumber: 1206,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 !selectedUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5675,7 +5657,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     className: "h-4 w-4 text-gray-400 shrink-0"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1274,
+                                                                    lineNumber: 1271,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 omniboxFilters.map((filter)=>{
@@ -5691,14 +5673,14 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1287,
+                                                                                lineNumber: 1284,
                                                                                 columnNumber: 31
                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                                                                 children: filter.label
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1288,
+                                                                                lineNumber: 1285,
                                                                                 columnNumber: 31
                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -5712,18 +5694,18 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                     className: "h-3 w-3"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                    lineNumber: 1294,
+                                                                                    lineNumber: 1291,
                                                                                     columnNumber: 33
                                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1289,
+                                                                                lineNumber: 1286,
                                                                                 columnNumber: 31
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         ]
                                                                     }, filter.facet, true, {
                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                        lineNumber: 1280,
+                                                                        lineNumber: 1277,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0));
                                                                 }),
@@ -5735,7 +5717,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1302,
+                                                                    lineNumber: 1299,
                                                                     columnNumber: 27
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -5753,7 +5735,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                     disabled: isLoading
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1311,
+                                                                    lineNumber: 1308,
                                                                     columnNumber: 25
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 (omniboxFilters.length > 0 || omniboxInput) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -5772,18 +5754,18 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                         className: "h-3.5 w-3.5"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                        lineNumber: 1341,
+                                                                        lineNumber: 1338,
                                                                         columnNumber: 29
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1328,
+                                                                    lineNumber: 1325,
                                                                     columnNumber: 27
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1265,
+                                                            lineNumber: 1262,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         omniboxDropdownOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5798,7 +5780,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "Filtrar por"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1355,
+                                                                            lineNumber: 1352,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         facetKeys.filter((k)=>!omniboxFilters.find((f)=>f.facet === k)).map((facetKey, index)=>{
@@ -5819,7 +5801,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: config.label
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1376,
+                                                                                                lineNumber: 1373,
                                                                                                 columnNumber: 41
                                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                                             optCount !== null && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -5830,7 +5812,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 ]
                                                                                             }, void 0, true, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1380,
+                                                                                                lineNumber: 1377,
                                                                                                 columnNumber: 43
                                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                                             facetKey === "correo" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -5838,26 +5820,26 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: "texto libre"
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1383,
+                                                                                                lineNumber: 1380,
                                                                                                 columnNumber: 43
                                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                        lineNumber: 1375,
+                                                                                        lineNumber: 1372,
                                                                                         columnNumber: 39
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
                                                                                         className: "h-3.5 w-3.5 text-gray-400"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                        lineNumber: 1386,
+                                                                                        lineNumber: 1383,
                                                                                         columnNumber: 39
                                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                                 ]
                                                                             }, facetKey, true, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1364,
+                                                                                lineNumber: 1361,
                                                                                 columnNumber: 37
                                                                             }, ("TURBOPACK compile-time value", void 0));
                                                                         }),
@@ -5866,13 +5848,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "Todos los filtros aplicados"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1391,
+                                                                            lineNumber: 1388,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1354,
+                                                                    lineNumber: 1351,
                                                                     columnNumber: 29
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 omniboxMode === "values" && omniboxActiveFacet && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5891,7 +5873,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                     className: "h-3 w-3 rotate-180"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                    lineNumber: 1410,
+                                                                                    lineNumber: 1407,
                                                                                     columnNumber: 33
                                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                                 FACET_CONFIG[omniboxActiveFacet].label,
@@ -5900,7 +5882,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1401,
+                                                                            lineNumber: 1398,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         omniboxActiveFacet === "correo" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5913,7 +5895,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                         children: "Enter"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                        lineNumber: 1417,
+                                                                                        lineNumber: 1414,
                                                                                         columnNumber: 54
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     " para buscar por “",
@@ -5922,12 +5904,12 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1417,
+                                                                                lineNumber: 1414,
                                                                                 columnNumber: 39
                                                                             }, ("TURBOPACK compile-time value", void 0)) : "Escribe un correo o nombre para buscar"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1415,
+                                                                            lineNumber: 1412,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                                                                             children: filteredFacetOptions.length > 0 ? filteredFacetOptions.map((option, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -5939,21 +5921,21 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                     children: option.label
                                                                                 }, option.value, false, {
                                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                    lineNumber: 1425,
+                                                                                    lineNumber: 1422,
                                                                                     columnNumber: 39
                                                                                 }, ("TURBOPACK compile-time value", void 0))) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                                                 className: "px-3 py-4 text-sm text-gray-500 text-center",
                                                                                 children: "No se encontraron opciones"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1440,
+                                                                                lineNumber: 1437,
                                                                                 columnNumber: 37
                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                         }, void 0, false)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1400,
+                                                                    lineNumber: 1397,
                                                                     columnNumber: 29
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 omniboxMode === "results" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -5964,7 +5946,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: isSearchingUsers ? "Buscando..." : `${userSearchResults.length} usuario${userSearchResults.length !== 1 ? "s" : ""} encontrado${userSearchResults.length !== 1 ? "s" : ""}`
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1452,
+                                                                            lineNumber: 1449,
                                                                             columnNumber: 31
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         userSearchResults.map((user, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -5981,7 +5963,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: user.name
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1468,
+                                                                                                lineNumber: 1465,
                                                                                                 columnNumber: 37
                                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -5989,13 +5971,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: user.email
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1469,
+                                                                                                lineNumber: 1466,
                                                                                                 columnNumber: 37
                                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                        lineNumber: 1467,
+                                                                                        lineNumber: 1464,
                                                                                         columnNumber: 35
                                                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6006,7 +5988,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: user.departmentName
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1472,
+                                                                                                lineNumber: 1469,
                                                                                                 columnNumber: 61
                                                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                                                             user.rolName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -6014,19 +5996,19 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                                                 children: user.rolName
                                                                                             }, void 0, false, {
                                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                                lineNumber: 1473,
+                                                                                                lineNumber: 1470,
                                                                                                 columnNumber: 54
                                                                                             }, ("TURBOPACK compile-time value", void 0))
                                                                                         ]
                                                                                     }, void 0, true, {
                                                                                         fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                        lineNumber: 1471,
+                                                                                        lineNumber: 1468,
                                                                                         columnNumber: 35
                                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                                 ]
                                                                             }, user.userID, true, {
                                                                                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                                lineNumber: 1456,
+                                                                                lineNumber: 1453,
                                                                                 columnNumber: 33
                                                                             }, ("TURBOPACK compile-time value", void 0))),
                                                                         !isSearchingUsers && userSearchResults.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6034,37 +6016,37 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                                             children: "No se encontraron usuarios con los filtros aplicados"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                            lineNumber: 1478,
+                                                                            lineNumber: 1475,
                                                                             columnNumber: 33
                                                                         }, ("TURBOPACK compile-time value", void 0))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                                    lineNumber: 1451,
+                                                                    lineNumber: 1448,
                                                                     columnNumber: 29
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1348,
+                                                            lineNumber: 1345,
                                                             columnNumber: 25
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1263,
+                                                    lineNumber: 1260,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1206,
+                                            lineNumber: 1203,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1187,
+                                    lineNumber: 1184,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6087,39 +6069,39 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1502,
+                                                            lineNumber: 1499,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1499,
+                                                    lineNumber: 1496,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 showTechnical ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1507,
+                                                    lineNumber: 1504,
                                                     columnNumber: 34
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1507,
+                                                    lineNumber: 1504,
                                                     columnNumber: 70
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1494,
+                                            lineNumber: 1491,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         showTechnical && renderTechnicalFields()
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1493,
+                                    lineNumber: 1490,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6134,26 +6116,26 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                     children: "Fechas (Opcional)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1520,
+                                                    lineNumber: 1517,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 showDates ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1521,
+                                                    lineNumber: 1518,
                                                     columnNumber: 30
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1521,
+                                                    lineNumber: 1518,
                                                     columnNumber: 66
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1515,
+                                            lineNumber: 1512,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         showDates && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6167,7 +6149,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Fecha de Compra"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1527,
+                                                            lineNumber: 1524,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6178,13 +6160,13 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1530,
+                                                            lineNumber: 1527,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1526,
+                                                    lineNumber: 1523,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6195,7 +6177,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             children: "Vencimiento de Garantia"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1540,
+                                                            lineNumber: 1537,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6206,31 +6188,31 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                            lineNumber: 1543,
+                                                            lineNumber: 1540,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                                    lineNumber: 1539,
+                                                    lineNumber: 1536,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                            lineNumber: 1525,
+                                            lineNumber: 1522,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1514,
+                                    lineNumber: 1511,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 1048,
+                            lineNumber: 1045,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6245,7 +6227,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: "Cancelar"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1558,
+                                    lineNumber: 1555,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -6256,24 +6238,24 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                                     children: isLoading ? "Registrando..." : "Registrar Activo"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                                    lineNumber: 1567,
+                                    lineNumber: 1564,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CreateAssetModal.tsx",
-                            lineNumber: 1557,
+                            lineNumber: 1554,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CreateAssetModal.tsx",
-                    lineNumber: 1029,
+                    lineNumber: 1026,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                lineNumber: 1028,
+                lineNumber: 1025,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$CreateProductTypeModal$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["CreateProductTypeModal"], {
@@ -6282,7 +6264,7 @@ const CreateAssetModal = ({ productTypes, vendors, assetStates, companies, sites
                 onSuccess: handleProductTypeCreated
             }, void 0, false, {
                 fileName: "[project]/src/components/CreateAssetModal.tsx",
-                lineNumber: 1580,
+                lineNumber: 1577,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
@@ -6416,8 +6398,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
             if (detail.purchaseDate || detail.warrantyExpiryDate) {
                 setShowDates(true);
             }
-        } catch (error) {
-            console.error("Error al cargar detalles del activo:", error);
+        } catch  {
             showError("Error al cargar los datos del activo");
         } finally{
             setIsLoadingAsset(false);
@@ -6524,7 +6505,6 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
             onSuccess();
             onClose();
         } catch (error) {
-            console.error("Error al actualizar activo:", error);
             if (error && typeof error === "object" && "response" in error) {
                 const axiosError = error;
                 const status = axiosError.response.status;
@@ -6558,7 +6538,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                 children: "Selecciona un tipo de activo para ver los campos disponibles"
             }, void 0, false, {
                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                lineNumber: 276,
+                lineNumber: 273,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0));
         }
@@ -6572,7 +6552,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                             children: "Identificacion"
                         }, void 0, false, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 286,
+                            lineNumber: 283,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6586,7 +6566,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "Fabricante"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 291,
+                                            lineNumber: 288,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6597,13 +6577,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 292,
+                                            lineNumber: 289,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 290,
+                                    lineNumber: 287,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6614,7 +6594,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "Modelo"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 295,
+                                            lineNumber: 292,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6625,13 +6605,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 296,
+                                            lineNumber: 293,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 294,
+                                    lineNumber: 291,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6642,7 +6622,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "Numero de Serie"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 299,
+                                            lineNumber: 296,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6653,13 +6633,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             disabled: isLoading
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 300,
+                                            lineNumber: 297,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 298,
+                                    lineNumber: 295,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6670,7 +6650,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "Asset TAG"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 303,
+                                            lineNumber: 300,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6681,7 +6661,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             readOnly: true
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 304,
+                                            lineNumber: 301,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -6689,25 +6669,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "El Asset TAG es asignado por el sistema y se regenera si cambia el tipo de producto."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 305,
+                                            lineNumber: 302,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 299,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 289,
+                            lineNumber: 286,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                    lineNumber: 285,
+                    lineNumber: 282,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 (productTypeGroup === "Equipo" || productTypeGroup === "Otros") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
@@ -6719,7 +6699,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Red y Acceso"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 314,
+                                    lineNumber: 311,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6733,7 +6713,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Direccion IP"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 319,
+                                                    lineNumber: 316,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6744,13 +6724,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 320,
+                                                    lineNumber: 317,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 318,
+                                            lineNumber: 315,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6761,7 +6741,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Direccion MAC"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 323,
+                                                    lineNumber: 320,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6772,13 +6752,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 324,
+                                                    lineNumber: 321,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 322,
+                                            lineNumber: 319,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6789,7 +6769,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Dominio"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 327,
+                                                    lineNumber: 324,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6800,25 +6780,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 328,
+                                                    lineNumber: 325,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 326,
+                                            lineNumber: 323,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 317,
+                                    lineNumber: 314,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 313,
+                            lineNumber: 310,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6828,7 +6808,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Procesamiento"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 335,
+                                    lineNumber: 332,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6842,7 +6822,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Procesador"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 340,
+                                                    lineNumber: 337,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6853,13 +6833,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 341,
+                                                    lineNumber: 338,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 339,
+                                            lineNumber: 336,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6870,7 +6850,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Velocidad del Procesador"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 341,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6881,25 +6861,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 345,
+                                                    lineNumber: 342,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 343,
+                                            lineNumber: 340,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 338,
+                                    lineNumber: 335,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 334,
+                            lineNumber: 331,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6909,7 +6889,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Memoria"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 352,
+                                    lineNumber: 349,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6923,7 +6903,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Memoria RAM"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 357,
+                                                    lineNumber: 354,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -6934,13 +6914,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 355,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 356,
+                                            lineNumber: 353,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -6951,7 +6931,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Tipo de Memoria"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 361,
+                                                    lineNumber: 358,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -6964,12 +6944,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 placeholder: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 368,
+                                                                lineNumber: 365,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 367,
+                                                            lineNumber: 364,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -6979,7 +6959,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "Seleccionar tipo"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 371,
+                                                                    lineNumber: 368,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -6987,7 +6967,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "DDR3"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 372,
+                                                                    lineNumber: 369,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -6995,7 +6975,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "DDR4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 373,
+                                                                    lineNumber: 370,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7003,37 +6983,37 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "DDR5"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 374,
+                                                                    lineNumber: 371,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 370,
+                                                            lineNumber: 367,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 362,
+                                                    lineNumber: 359,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 360,
+                                            lineNumber: 357,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 355,
+                                    lineNumber: 352,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 351,
+                            lineNumber: 348,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7043,7 +7023,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Almacenamiento"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 383,
+                                    lineNumber: 380,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7057,7 +7037,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Capacidad de Disco"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 388,
+                                                    lineNumber: 385,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7068,13 +7048,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     disabled: isLoading
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 389,
+                                                    lineNumber: 386,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 387,
+                                            lineNumber: 384,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7085,7 +7065,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Tipo de Disco"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 392,
+                                                    lineNumber: 389,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7098,12 +7078,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 placeholder: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 399,
+                                                                lineNumber: 396,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 398,
+                                                            lineNumber: 395,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7113,7 +7093,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "Seleccionar tipo"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 402,
+                                                                    lineNumber: 399,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7121,7 +7101,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "HDD"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 403,
+                                                                    lineNumber: 400,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7129,7 +7109,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "SSD"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 404,
+                                                                    lineNumber: 401,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7137,37 +7117,37 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                     children: "NVME"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 405,
+                                                                    lineNumber: 402,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 401,
+                                                            lineNumber: 398,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 393,
+                                                    lineNumber: 390,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 391,
+                                            lineNumber: 388,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 386,
+                                    lineNumber: 383,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 382,
+                            lineNumber: 379,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7177,7 +7157,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Software"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 414,
+                                    lineNumber: 411,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7190,7 +7170,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Sistema Operativo"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 419,
+                                                lineNumber: 416,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7203,12 +7183,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             placeholder: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 426,
+                                                            lineNumber: 423,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 425,
+                                                        lineNumber: 422,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7218,7 +7198,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 429,
+                                                                lineNumber: 426,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7226,7 +7206,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Windows 7"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 430,
+                                                                lineNumber: 427,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7234,7 +7214,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Windows 8"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 431,
+                                                                lineNumber: 428,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7242,7 +7222,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Windows 10"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 432,
+                                                                lineNumber: 429,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7250,36 +7230,36 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Windows 11"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 433,
+                                                                lineNumber: 430,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 428,
+                                                        lineNumber: 425,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 420,
+                                                lineNumber: 417,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 418,
+                                        lineNumber: 415,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 417,
+                                    lineNumber: 414,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 413,
+                            lineNumber: 410,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -7292,7 +7272,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                 children: "Componentes"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                lineNumber: 445,
+                                lineNumber: 442,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7306,7 +7286,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Memoria RAM"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 450,
+                                                lineNumber: 447,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7317,13 +7297,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 451,
+                                                lineNumber: 448,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 449,
+                                        lineNumber: 446,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7334,7 +7314,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Tipo de Memoria"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 455,
+                                                lineNumber: 452,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7347,12 +7327,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             placeholder: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 462,
+                                                            lineNumber: 459,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 461,
+                                                        lineNumber: 458,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7362,7 +7342,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 465,
+                                                                lineNumber: 462,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7370,7 +7350,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "DDR3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 466,
+                                                                lineNumber: 463,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7378,7 +7358,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "DDR4"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 467,
+                                                                lineNumber: 464,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7386,25 +7366,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "DDR5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 468,
+                                                                lineNumber: 465,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 464,
+                                                        lineNumber: 461,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 456,
+                                                lineNumber: 453,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 454,
+                                        lineNumber: 451,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7415,7 +7395,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Capacidad de Disco"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 474,
+                                                lineNumber: 471,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7426,13 +7406,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 475,
+                                                lineNumber: 472,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 473,
+                                        lineNumber: 470,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7443,7 +7423,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Tipo de Disco"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 479,
+                                                lineNumber: 476,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7456,12 +7436,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             placeholder: "Seleccionar tipo"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 486,
+                                                            lineNumber: 483,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 485,
+                                                        lineNumber: 482,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7471,7 +7451,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "Seleccionar tipo"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 489,
+                                                                lineNumber: 486,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7479,7 +7459,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "HDD"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 490,
+                                                                lineNumber: 487,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7487,7 +7467,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "SSD"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 491,
+                                                                lineNumber: 488,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7495,25 +7475,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                 children: "NVME"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                lineNumber: 492,
+                                                                lineNumber: 489,
                                                                 columnNumber: 23
                                                             }, ("TURBOPACK compile-time value", void 0))
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                        lineNumber: 488,
+                                                        lineNumber: 485,
                                                         columnNumber: 21
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 480,
+                                                lineNumber: 477,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 478,
+                                        lineNumber: 475,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7524,7 +7504,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Serial HDD/SSD"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 497,
+                                                lineNumber: 494,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7535,25 +7515,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 498,
+                                                lineNumber: 495,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 496,
+                                        lineNumber: 493,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                lineNumber: 448,
+                                lineNumber: 445,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                        lineNumber: 444,
+                        lineNumber: 441,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false),
@@ -7565,7 +7545,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                 children: "Informacion Movil"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                lineNumber: 508,
+                                lineNumber: 505,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7579,7 +7559,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "IMEI"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 513,
+                                                lineNumber: 510,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7590,13 +7570,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 514,
+                                                lineNumber: 511,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 512,
+                                        lineNumber: 509,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7607,7 +7587,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Plataforma"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 517,
+                                                lineNumber: 514,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7618,13 +7598,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 518,
+                                                lineNumber: 515,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 516,
+                                        lineNumber: 513,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7635,7 +7615,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Nombre SO"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 521,
+                                                lineNumber: 518,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7646,13 +7626,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 522,
+                                                lineNumber: 519,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 520,
+                                        lineNumber: 517,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7663,7 +7643,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 children: "Version SO"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 525,
+                                                lineNumber: 522,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7674,32 +7654,32 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                 disabled: isLoading
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                lineNumber: 526,
+                                                lineNumber: 523,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                        lineNumber: 524,
+                                        lineNumber: 521,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                lineNumber: 511,
+                                lineNumber: 508,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                        lineNumber: 507,
+                        lineNumber: 504,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/EditAssetModal.tsx",
-            lineNumber: 283,
+            lineNumber: 280,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0));
     };
@@ -7719,7 +7699,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     className: "h-5 w-5 text-amber-600"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 544,
+                                    lineNumber: 541,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -7727,7 +7707,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Editar Activo"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 545,
+                                    lineNumber: 542,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -7738,13 +7718,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 546,
+                                    lineNumber: 543,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 543,
+                            lineNumber: 540,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -7756,13 +7736,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                             children: "X"
                         }, void 0, false, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 548,
+                            lineNumber: 545,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                    lineNumber: 542,
+                    lineNumber: 539,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0)),
                 isLoadingAsset ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7771,12 +7751,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                         className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"
                     }, void 0, false, {
                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                        lineNumber: 561,
+                        lineNumber: 558,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                    lineNumber: 560,
+                    lineNumber: 557,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                     children: [
@@ -7792,7 +7772,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             children: "Informacion Basica"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 569,
+                                            lineNumber: 566,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7806,7 +7786,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Nombre del Activo *"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 574,
+                                                            lineNumber: 571,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -7818,7 +7798,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 575,
+                                                            lineNumber: 572,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.name && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -7826,13 +7806,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: errors.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 583,
+                                                            lineNumber: 580,
                                                             columnNumber: 37
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 573,
+                                                    lineNumber: 570,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7843,7 +7823,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Tipo de Activo *"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 587,
+                                                            lineNumber: 584,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7857,12 +7837,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                         placeholder: "Seleccionar tipo"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                        lineNumber: 594,
+                                                                        lineNumber: 591,
                                                                         columnNumber: 25
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 593,
+                                                                    lineNumber: 590,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7872,7 +7852,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                             children: "Seleccionar tipo"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                            lineNumber: 597,
+                                                                            lineNumber: 594,
                                                                             columnNumber: 25
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         productTypes.map((pt)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7885,19 +7865,19 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                                 ]
                                                                             }, pt.productTypeID, true, {
                                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                                lineNumber: 599,
+                                                                                lineNumber: 596,
                                                                                 columnNumber: 27
                                                                             }, ("TURBOPACK compile-time value", void 0)))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 596,
+                                                                    lineNumber: 593,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 588,
+                                                            lineNumber: 585,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.productTypeID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -7905,13 +7885,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: errors.productTypeID
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 605,
+                                                            lineNumber: 602,
                                                             columnNumber: 46
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 586,
+                                                    lineNumber: 583,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7922,7 +7902,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Proveedor *"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 609,
+                                                            lineNumber: 606,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -7936,12 +7916,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                         placeholder: "Seleccionar proveedor"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                        lineNumber: 616,
+                                                                        lineNumber: 613,
                                                                         columnNumber: 25
                                                                     }, ("TURBOPACK compile-time value", void 0))
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 615,
+                                                                    lineNumber: 612,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -7951,7 +7931,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                             children: "Seleccionar proveedor"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                            lineNumber: 619,
+                                                                            lineNumber: 616,
                                                                             columnNumber: 25
                                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                                         vendors.map((vendor)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -7959,19 +7939,19 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                                                 children: vendor.name
                                                                             }, vendor.vendorID, false, {
                                                                                 fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                                lineNumber: 621,
+                                                                                lineNumber: 618,
                                                                                 columnNumber: 27
                                                                             }, ("TURBOPACK compile-time value", void 0)))
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                                    lineNumber: 618,
+                                                                    lineNumber: 615,
                                                                     columnNumber: 23
                                                                 }, ("TURBOPACK compile-time value", void 0))
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 610,
+                                                            lineNumber: 607,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         errors.vendorID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -7979,13 +7959,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: errors.vendorID
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 627,
+                                                            lineNumber: 624,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 608,
+                                                    lineNumber: 605,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -7996,7 +7976,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Estado"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 631,
+                                                            lineNumber: 628,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8004,7 +7984,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: assetStates.find((s)=>s.assetStateID === formData.assetState)?.name || "Sin estado"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 632,
+                                                            lineNumber: 629,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -8012,13 +7992,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Se modifica mediante movimientos"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 635,
+                                                            lineNumber: 632,
                                                             columnNumber: 21
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 630,
+                                                    lineNumber: 627,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8029,7 +8009,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Factura"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 639,
+                                                            lineNumber: 636,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -8041,13 +8021,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 642,
+                                                            lineNumber: 639,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 638,
+                                                    lineNumber: 635,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8058,7 +8038,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Ticket"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 652,
+                                                            lineNumber: 649,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -8070,25 +8050,25 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 655,
+                                                            lineNumber: 652,
                                                             columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 651,
+                                                    lineNumber: 648,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 572,
+                                            lineNumber: 569,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 568,
+                                    lineNumber: 565,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8111,39 +8091,39 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 677,
+                                                            lineNumber: 674,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 674,
+                                                    lineNumber: 671,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 showTechnical ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 682,
+                                                    lineNumber: 679,
                                                     columnNumber: 36
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 682,
+                                                    lineNumber: 679,
                                                     columnNumber: 72
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 669,
+                                            lineNumber: 666,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         showTechnical && renderTechnicalFields()
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 668,
+                                    lineNumber: 665,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8158,26 +8138,26 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                     children: "Fechas (Opcional)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 694,
+                                                    lineNumber: 691,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 showDates ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$up$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronUp$3e$__["ChevronUp"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 695,
+                                                    lineNumber: 692,
                                                     columnNumber: 32
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 695,
+                                                    lineNumber: 692,
                                                     columnNumber: 68
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 689,
+                                            lineNumber: 686,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         showDates && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8191,7 +8171,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Fecha de Compra"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 700,
+                                                            lineNumber: 697,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -8202,13 +8182,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 701,
+                                                            lineNumber: 698,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 699,
+                                                    lineNumber: 696,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8219,7 +8199,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             children: "Vencimiento de Garantia"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 704,
+                                                            lineNumber: 701,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -8230,31 +8210,31 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                                             disabled: isLoading
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                            lineNumber: 705,
+                                                            lineNumber: 702,
                                                             columnNumber: 23
                                                         }, ("TURBOPACK compile-time value", void 0))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                                    lineNumber: 703,
+                                                    lineNumber: 700,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 698,
+                                            lineNumber: 695,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 688,
+                                    lineNumber: 685,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 566,
+                            lineNumber: 563,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -8269,7 +8249,7 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: "Cancelar"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 714,
+                                    lineNumber: 711,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 onOpenAssignment && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -8283,14 +8263,14 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                             className: "h-4 w-4"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                                            lineNumber: 731,
+                                            lineNumber: 728,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         "Asignacion"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 724,
+                                    lineNumber: 721,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -8301,13 +8281,13 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
                                     children: isLoading ? "Guardando..." : "Guardar Cambios"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/EditAssetModal.tsx",
-                                    lineNumber: 735,
+                                    lineNumber: 732,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/EditAssetModal.tsx",
-                            lineNumber: 713,
+                            lineNumber: 710,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
@@ -8315,12 +8295,12 @@ const EditAssetModal = ({ asset, productTypes, vendors, assetStates, companies, 
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/EditAssetModal.tsx",
-            lineNumber: 540,
+            lineNumber: 537,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/components/EditAssetModal.tsx",
-        lineNumber: 539,
+        lineNumber: 536,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -8495,8 +8475,8 @@ const AssetDetailModal = ({ assetID, isOpen, onClose, onEdit, onOpenAssignment, 
             const response = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$ssr$5d$__$28$ecmascript$29$__["default"].asset.getById(assetID);
             const assetData = response.data || response;
             setData(assetData);
-        } catch (error) {
-            console.error("Error loading asset detail:", error);
+        } catch  {
+            setData(null);
         } finally{
             setIsLoading(false);
         }
@@ -10574,8 +10554,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                 initialStatus[sw] = "NA";
             });
             setSoftwareStatus(initialStatus);
-        } catch (error) {
-            console.error("Error loading delivery data:", error);
+        } catch  {
             __TURBOPACK__imported__module__$5b$externals$5d2f$sonner__$5b$external$5d$__$28$sonner$2c$__esm_import$29$__["toast"].error("Error al cargar datos del reporte");
         } finally{
             setIsLoading(false);
@@ -10630,8 +10609,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                 }), `responsiva_de_entrega_${new Date().toISOString().split("T")[0]}.pdf`);
             }
             __TURBOPACK__imported__module__$5b$externals$5d2f$sonner__$5b$external$5d$__$28$sonner$2c$__esm_import$29$__["toast"].success("PDF generado exitosamente");
-        } catch (error) {
-            console.error("Error generating PDF:", error);
+        } catch  {
             __TURBOPACK__imported__module__$5b$externals$5d2f$sonner__$5b$external$5d$__$28$sonner$2c$__esm_import$29$__["toast"].error("Error al generar el PDF");
         } finally{
             setIsGenerating(false);
@@ -10646,7 +10624,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                 onClick: onClose
             }, void 0, false, {
                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                lineNumber: 201,
+                lineNumber: 199,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10662,7 +10640,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                        lineNumber: 207,
+                                        lineNumber: 205,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -10670,13 +10648,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                         children: customTitle || FORMAT_LABELS[format]
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                        lineNumber: 208,
+                                        lineNumber: 206,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                lineNumber: 206,
+                                lineNumber: 204,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -10686,18 +10664,18 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                     className: "h-5 w-5"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 211,
+                                    lineNumber: 209,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                lineNumber: 210,
+                                lineNumber: 208,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                        lineNumber: 205,
+                        lineNumber: 203,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10708,12 +10686,12 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                 className: "h-8 w-8 animate-spin text-blue-600"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                lineNumber: 219,
+                                lineNumber: 217,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                            lineNumber: 218,
+                            lineNumber: 216,
                             columnNumber: 13
                         }, this) : data ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                             className: "space-y-6",
@@ -10725,7 +10703,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Tipo de Reporte"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 226,
+                                            lineNumber: 224,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10737,18 +10715,18 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                     children: FORMAT_LABELS[f]
                                                 }, f, false, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 229,
+                                                    lineNumber: 227,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 227,
+                                            lineNumber: 225,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 225,
+                                    lineNumber: 223,
                                     columnNumber: 17
                                 }, this),
                                 format === "entrega_software" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10759,7 +10737,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Informacion del Equipo"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 249,
+                                            lineNumber: 247,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10772,7 +10750,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "Equipo:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 252,
+                                                            lineNumber: 250,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10781,13 +10759,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 253,
+                                                            lineNumber: 251,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 251,
+                                                    lineNumber: 249,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10797,7 +10775,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "No. Serie:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 256,
+                                                            lineNumber: 254,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10806,13 +10784,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.serialNum
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 257,
+                                                            lineNumber: 255,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 253,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10822,7 +10800,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "Departamento:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 260,
+                                                            lineNumber: 258,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10831,13 +10809,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.department || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 261,
+                                                            lineNumber: 259,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 259,
+                                                    lineNumber: 257,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10847,7 +10825,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "Entrega:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 262,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10856,13 +10834,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.userName || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 265,
+                                                            lineNumber: 263,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 263,
+                                                    lineNumber: 261,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10872,7 +10850,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "Empresa:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 268,
+                                                            lineNumber: 266,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10881,13 +10859,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.company || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 269,
+                                                            lineNumber: 267,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 267,
+                                                    lineNumber: 265,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10897,7 +10875,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: "Sitio:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 272,
+                                                            lineNumber: 270,
                                                             columnNumber: 23
                                                         }, this),
                                                         " ",
@@ -10906,25 +10884,25 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: data.site || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 273,
+                                                            lineNumber: 271,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 271,
+                                                    lineNumber: 269,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 250,
+                                            lineNumber: 248,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 248,
+                                    lineNumber: 246,
                                     columnNumber: 17
                                 }, this),
                                 format === "entrega_multiitem" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10942,13 +10920,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 284,
+                                                    lineNumber: 282,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 282,
+                                            lineNumber: 280,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -10963,7 +10941,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             className: "rounded border-gray-300"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 296,
+                                                            lineNumber: 294,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -10971,7 +10949,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: asset.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 302,
+                                                            lineNumber: 300,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -10979,7 +10957,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: asset.vendor
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 303,
+                                                            lineNumber: 301,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -10987,7 +10965,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: asset.model || "-"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 304,
+                                                            lineNumber: 302,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -10995,24 +10973,24 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: asset.serialNum || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 305,
+                                                            lineNumber: 303,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, asset.assetID, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 288,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 288,
+                                            lineNumber: 286,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 279,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11022,7 +11000,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Razon Social"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 314,
+                                            lineNumber: 312,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -11033,13 +11011,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             placeholder: "Razon social de la empresa"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 315,
+                                            lineNumber: 313,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 313,
+                                    lineNumber: 311,
                                     columnNumber: 15
                                 }, this),
                                 format === "entrega_software" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11053,13 +11031,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                     children: "(Haz clic para marcar como instalado)"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 329,
+                                                    lineNumber: 327,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 327,
+                                            lineNumber: 325,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11072,38 +11050,38 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: sw
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 344,
+                                                            lineNumber: 342,
                                                             columnNumber: 25
                                                         }, this),
                                                         softwareStatus[sw] === "X" ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
                                                             className: "h-4 w-4 text-green-600"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 346,
+                                                            lineNumber: 344,
                                                             columnNumber: 27
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                                             className: "text-xs text-gray-400",
                                                             children: "NA"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 348,
+                                                            lineNumber: 346,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, sw, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 335,
+                                                    lineNumber: 333,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 333,
+                                            lineNumber: 331,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 326,
+                                    lineNumber: 324,
                                     columnNumber: 17
                                 }, this),
                                 format === "entrega_software" && data.childAssets.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11113,7 +11091,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Componentes / Accesorios Incluidos"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 359,
+                                            lineNumber: 357,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11126,7 +11104,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: child.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 365,
+                                                            lineNumber: 363,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -11134,7 +11112,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: child.vendor
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 366,
+                                                            lineNumber: 364,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -11142,7 +11120,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: child.model || "-"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 367,
+                                                            lineNumber: 365,
                                                             columnNumber: 25
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -11150,24 +11128,24 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                                             children: child.serialNum || "N/A"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                            lineNumber: 368,
+                                                            lineNumber: 366,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, idx, true, {
                                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                                    lineNumber: 364,
+                                                    lineNumber: 362,
                                                     columnNumber: 23
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 362,
+                                            lineNumber: 360,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 358,
+                                    lineNumber: 356,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11177,7 +11155,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Notas / Condicion del equipo"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 377,
+                                            lineNumber: 375,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("textarea", {
@@ -11187,13 +11165,13 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             placeholder: "Describe la condicion del equipo..."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 378,
+                                            lineNumber: 376,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 376,
+                                    lineNumber: 374,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11204,7 +11182,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: "Aviso que aparecera en el PDF:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 388,
+                                            lineNumber: 386,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -11212,31 +11190,31 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             children: `Recibo de Hotel Shops S.A. de C.V. la(s) Herramienta(s) arriba mencionada(s) para hacer buen uso de ellas. En caso de renuncia o cambio de departamento, sirvase hacer entrega del equipo a su cargo a fin de evitar responsabilidades posteriores en efectivo.`
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 389,
+                                            lineNumber: 387,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                    lineNumber: 387,
+                                    lineNumber: 385,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                            lineNumber: 222,
+                            lineNumber: 220,
                             columnNumber: 13
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                             className: "text-center text-gray-500 py-12",
                             children: "No se pudieron cargar los datos del reporte"
                         }, void 0, false, {
                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                            lineNumber: 395,
+                            lineNumber: 393,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                        lineNumber: 216,
+                        lineNumber: 214,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -11248,7 +11226,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                 children: "Cancelar"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                lineNumber: 403,
+                                lineNumber: 401,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -11261,7 +11239,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             className: "h-4 w-4 mr-2 animate-spin"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 413,
+                                            lineNumber: 411,
                                             columnNumber: 17
                                         }, this),
                                         "Generando..."
@@ -11272,7 +11250,7 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                             className: "h-4 w-4 mr-2"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                            lineNumber: 418,
+                                            lineNumber: 416,
                                             columnNumber: 17
                                         }, this),
                                         "Descargar PDF"
@@ -11280,25 +11258,25 @@ function DeliveryReportModal({ assetID, assetIDs, availableAssets = [], format: 
                                 }, void 0, true)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                                lineNumber: 406,
+                                lineNumber: 404,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                        lineNumber: 402,
+                        lineNumber: 400,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/DeliveryReportModal.tsx",
-                lineNumber: 203,
+                lineNumber: 201,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/DeliveryReportModal.tsx",
-        lineNumber: 200,
+        lineNumber: 198,
         columnNumber: 5
     }, this);
 }

@@ -529,10 +529,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/react/index.js [client] (ecmascript)");
 ;
 ;
-// Verificar que la URL de la API esté configurada correctamente
 const apiBaseUrl = ("TURBOPACK compile-time value", "http://localhost:3000") || "http://localhost:5000/";
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-;
 const apiClient = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].create({
     baseURL: apiBaseUrl,
     headers: {
@@ -547,49 +544,25 @@ apiClient.interceptors.request.use(async (config)=>{
         const token = (_this = session === null || session === void 0 ? void 0 : session.user) === null || _this === void 0 ? void 0 : _this.access_token;
         if (token) {
             config.headers["Authorization"] = "Bearer ".concat(token);
-        } else {
-            console.warn("[API] Solicitud sin token a: ".concat(config.url));
         }
         return config;
-    } catch (error) {
-        console.error("[API] Error en interceptor de solicitud:", error);
+    } catch (e) {
         return config;
     }
 });
-apiClient.interceptors.response.use((response)=>{
-    return response;
-}, (error)=>{
-    // Solo manejar errores de autenticación aquí
-    // Los demás errores (400, 409, 500, etc.) se manejarán en los componentes
+apiClient.interceptors.response.use((response)=>response, (error)=>{
     if (error.response && error.response.status === 401) {
-        console.error("[API] Error de autenticación:", error.response);
-        // Aquí podrías redirigir al login o mostrar un toast
         return Promise.reject(new Error("Sesión expirada. Vuelve a iniciar sesión."));
     }
-    // Para otros errores, solo log y rechazar el error original
-    if (error.response) {
-        console.error("[API] Error de API (".concat(error.response.status, "):"), error.response.data);
-    } else if (error.request) {
-        console.error("[API] No se recibió respuesta:", error.request);
-        // En producción, crear un error más descriptivo
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-        ;
-    } else {
-        console.error("[API] Error de Axios:", error.message);
-    }
-    // Asegurar que el error se propague correctamente
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
     return Promise.reject(error);
 });
 const api = {
     permission: {
         get: async (email)=>{
-            try {
-                const response = await apiClient.get("/permission/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener permisos para ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/permission/".concat(email));
+            return response.data;
         },
         getAll: async ()=>{
             const response = await apiClient.get("/permission");
@@ -612,13 +585,8 @@ const api = {
     },
     user: {
         verify: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/verify/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al verificar usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/verify/".concat(email));
+            return response.data;
         },
         permission: async (email)=>{
             const response = await apiClient.get("/user/permissions/".concat(email));
@@ -702,13 +670,8 @@ const api = {
             return response.data;
         },
         getUserProfile: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/profile/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener perfil de usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/profile/".concat(email));
+            return response.data;
         }
     },
     role: {
@@ -1210,24 +1173,17 @@ function UserVerification(param) {
             var _session_user;
             const verifyUser = {
                 "UserVerification.useEffect.verifyUser": async ()=>{
-                    var _session_user, _session_user1;
+                    var _session_user;
                     if (status === 'loading') return;
-                    console.log('[UserVerification] Session status:', status);
-                    console.log('[UserVerification] User:', session === null || session === void 0 ? void 0 : (_session_user = session.user) === null || _session_user === void 0 ? void 0 : _session_user.preferred_username);
-                    if (!(session === null || session === void 0 ? void 0 : (_session_user1 = session.user) === null || _session_user1 === void 0 ? void 0 : _session_user1.preferred_username)) {
-                        console.log('[UserVerification] No username found in session');
+                    if (!(session === null || session === void 0 ? void 0 : (_session_user = session.user) === null || _session_user === void 0 ? void 0 : _session_user.preferred_username)) {
                         setIsLoading(false);
                         return;
                     }
                     try {
-                        console.log('[UserVerification] Verifying user:', session.user.preferred_username);
                         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$api$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["default"].user.verify(session.user.preferred_username);
-                        console.log('[UserVerification] API response:', response);
                         if (response.success) {
-                            console.log('[UserVerification] User verified:', response.data);
                             setIsVerified(true);
                         } else {
-                            // Handle specific error types with custom messages
                             let errorMessage = 'Error al verificar usuario';
                             switch(response.errorType){
                                 case 'USER_NOT_FOUND':
@@ -1251,22 +1207,15 @@ function UserVerification(param) {
                                 default:
                                     errorMessage = response.message || 'Error al verificar usuario. Contacta al administrador.';
                             }
-                            console.error('[UserVerification] Verification failed:', {
-                                errorType: response.errorType,
-                                message: errorMessage
-                            });
                             setError(errorMessage);
-                            // Always block access on verification failure
                             alert(errorMessage);
                             (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["signOut"])({
                                 callbackUrl: '/'
                             });
                         }
-                    } catch (error) {
-                        console.error('[UserVerification] Error verifying user:', error);
+                    } catch (e) {
                         const errorMessage = 'Error del sistema al verificar usuario. Contacta al administrador.';
                         setError(errorMessage);
-                        // Block access on system error
                         alert(errorMessage);
                         (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["signOut"])({
                             callbackUrl: '/'
@@ -1280,7 +1229,6 @@ function UserVerification(param) {
             if ((session === null || session === void 0 ? void 0 : (_session_user = session.user) === null || _session_user === void 0 ? void 0 : _session_user.preferred_username) && status === 'authenticated') {
                 verifyUser();
             } else if (status === 'unauthenticated') {
-                console.log('[UserVerification] User is not authenticated');
                 setIsLoading(false);
             }
         }
@@ -1294,7 +1242,6 @@ function UserVerification(param) {
             const timeoutId = setTimeout({
                 "UserVerification.useEffect.timeoutId": ()=>{
                     if ((status === 'loading' || isLoading || permissionsLoading) && !timeoutReached) {
-                        console.log('[UserVerification] Timeout reached, allowing access to avoid blocking users');
                         setTimeoutReached(true);
                         setIsLoading(false);
                         setIsVerified(true);
@@ -1313,7 +1260,6 @@ function UserVerification(param) {
     ]);
     // Si hay un timeout, mostrar un mensaje pero permitir continuar
     if (timeoutReached) {
-        console.log('[UserVerification] Rendering children after timeout');
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children: [
                 children,
@@ -1335,17 +1281,17 @@ function UserVerification(param) {
                                         clipRule: "evenodd"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/UserVerification.tsx",
-                                        lineNumber: 124,
+                                        lineNumber: 105,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/UserVerification.tsx",
-                                    lineNumber: 123,
+                                    lineNumber: 104,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/UserVerification.tsx",
-                                lineNumber: 122,
+                                lineNumber: 103,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1355,30 +1301,29 @@ function UserVerification(param) {
                                     children: "Se ha detectado una respuesta lenta. Algunas funcionalidades podrían estar limitadas."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/UserVerification.tsx",
-                                    lineNumber: 128,
+                                    lineNumber: 109,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/UserVerification.tsx",
-                                lineNumber: 127,
+                                lineNumber: 108,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 121,
+                        lineNumber: 102,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/UserVerification.tsx",
-                    lineNumber: 120,
+                    lineNumber: 101,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true);
     }
     if (status === 'loading' || isLoading || permissionsLoading) {
-        console.log('[UserVerification] Loading state. Status:', status, 'IsLoading:', isLoading, 'PermissionsLoading:', permissionsLoading);
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex items-center justify-center min-h-screen",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1388,7 +1333,7 @@ function UserVerification(param) {
                         className: "animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 141,
+                        lineNumber: 121,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1396,7 +1341,7 @@ function UserVerification(param) {
                         children: "Verificando usuario y permisos..."
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 142,
+                        lineNumber: 122,
                         columnNumber: 11
                     }, this),
                     permissionsLoading && !isLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1404,7 +1349,7 @@ function UserVerification(param) {
                         children: "Cargando permisos..."
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 144,
+                        lineNumber: 124,
                         columnNumber: 13
                     }, this),
                     isLoading && !permissionsLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1412,7 +1357,7 @@ function UserVerification(param) {
                         children: "Verificando usuario..."
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 147,
+                        lineNumber: 127,
                         columnNumber: 13
                     }, this),
                     status === 'loading' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1420,29 +1365,27 @@ function UserVerification(param) {
                         children: "Cargando sesión..."
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 150,
+                        lineNumber: 130,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/UserVerification.tsx",
-                lineNumber: 140,
+                lineNumber: 120,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/UserVerification.tsx",
-            lineNumber: 139,
+            lineNumber: 119,
             columnNumber: 7
         }, this);
     }
     if (!session) {
-        console.log('[UserVerification] No session, rendering children');
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
             children: children
         }, void 0, false);
     }
     if (!isVerified && !timeoutReached) {
-        console.log('[UserVerification] User not verified');
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex items-center justify-center min-h-screen",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1453,7 +1396,7 @@ function UserVerification(param) {
                         children: "⚠️"
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 167,
+                        lineNumber: 145,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1461,7 +1404,7 @@ function UserVerification(param) {
                         children: "Error de verificación"
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 168,
+                        lineNumber: 146,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1469,7 +1412,7 @@ function UserVerification(param) {
                         children: error || 'No se pudo verificar tu acceso al sistema.'
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 169,
+                        lineNumber: 147,
                         columnNumber: 11
                     }, this),
                     permissionsError && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1477,7 +1420,7 @@ function UserVerification(param) {
                         children: permissionsError
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 173,
+                        lineNumber: 151,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1488,22 +1431,21 @@ function UserVerification(param) {
                         children: "Volver al inicio"
                     }, void 0, false, {
                         fileName: "[project]/src/components/UserVerification.tsx",
-                        lineNumber: 175,
+                        lineNumber: 153,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/UserVerification.tsx",
-                lineNumber: 166,
+                lineNumber: 144,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/UserVerification.tsx",
-            lineNumber: 165,
+            lineNumber: 143,
             columnNumber: 7
         }, this);
     }
-    console.log('[UserVerification] User verified or timeout reached, rendering children');
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: children
     }, void 0, false);

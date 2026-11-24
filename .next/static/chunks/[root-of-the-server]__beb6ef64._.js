@@ -482,10 +482,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next-auth/react/index.js [client] (ecmascript)");
 ;
 ;
-// Verificar que la URL de la API esté configurada correctamente
 const apiBaseUrl = ("TURBOPACK compile-time value", "http://localhost:3000") || "http://localhost:5000/";
-if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-;
 const apiClient = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"].create({
     baseURL: apiBaseUrl,
     headers: {
@@ -500,49 +497,25 @@ apiClient.interceptors.request.use(async (config)=>{
         const token = (_this = session === null || session === void 0 ? void 0 : session.user) === null || _this === void 0 ? void 0 : _this.access_token;
         if (token) {
             config.headers["Authorization"] = "Bearer ".concat(token);
-        } else {
-            console.warn("[API] Solicitud sin token a: ".concat(config.url));
         }
         return config;
-    } catch (error) {
-        console.error("[API] Error en interceptor de solicitud:", error);
+    } catch (e) {
         return config;
     }
 });
-apiClient.interceptors.response.use((response)=>{
-    return response;
-}, (error)=>{
-    // Solo manejar errores de autenticación aquí
-    // Los demás errores (400, 409, 500, etc.) se manejarán en los componentes
+apiClient.interceptors.response.use((response)=>response, (error)=>{
     if (error.response && error.response.status === 401) {
-        console.error("[API] Error de autenticación:", error.response);
-        // Aquí podrías redirigir al login o mostrar un toast
         return Promise.reject(new Error("Sesión expirada. Vuelve a iniciar sesión."));
     }
-    // Para otros errores, solo log y rechazar el error original
-    if (error.response) {
-        console.error("[API] Error de API (".concat(error.response.status, "):"), error.response.data);
-    } else if (error.request) {
-        console.error("[API] No se recibió respuesta:", error.request);
-        // En producción, crear un error más descriptivo
-        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
-        ;
-    } else {
-        console.error("[API] Error de Axios:", error.message);
-    }
-    // Asegurar que el error se propague correctamente
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
     return Promise.reject(error);
 });
 const api = {
     permission: {
         get: async (email)=>{
-            try {
-                const response = await apiClient.get("/permission/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener permisos para ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/permission/".concat(email));
+            return response.data;
         },
         getAll: async ()=>{
             const response = await apiClient.get("/permission");
@@ -565,13 +538,8 @@ const api = {
     },
     user: {
         verify: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/verify/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al verificar usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/verify/".concat(email));
+            return response.data;
         },
         permission: async (email)=>{
             const response = await apiClient.get("/user/permissions/".concat(email));
@@ -655,13 +623,8 @@ const api = {
             return response.data;
         },
         getUserProfile: async (email)=>{
-            try {
-                const response = await apiClient.get("/user/profile/".concat(email));
-                return response.data;
-            } catch (error) {
-                console.error("[API] Error al obtener perfil de usuario ".concat(email, ":"), error);
-                throw error;
-            }
+            const response = await apiClient.get("/user/profile/".concat(email));
+            return response.data;
         }
     },
     role: {
@@ -2947,23 +2910,8 @@ function NavUser(param) {
     var _userProfile_userInfo;
     _s();
     const { isMobile } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["useSidebar"])();
-    const [userProfile, setUserProfile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    /*useEffect(() => {
-    const fetchUserProfile = async () => {
-      if (!user.email) return;
-      
-      try {
-        const response = await api.user.getUserProfile(user.email// 'arendon@hotel-shops.com'//);
-        if (response.success) {
-          setUserProfile(response.data);
-        }
-      } catch (error) {
-        console.error('Error al cargar perfil de usuario:', error);
-      }
-    };
-
-    fetchUserProfile();
-  }, [user.email]);*/ const userInitials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getInitials"])(user.name);
+    const [userProfile] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const userInitials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$client$5d$__$28$ecmascript$29$__["getInitials"])(user.name);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["SidebarMenu"], {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["SidebarMenuItem"], {
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenu"], {
@@ -2982,7 +2930,7 @@ function NavUser(param) {
                                             alt: user.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 78,
+                                            lineNumber: 61,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -2990,13 +2938,13 @@ function NavUser(param) {
                                             children: "HS"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 79,
+                                            lineNumber: 62,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 77,
+                                    lineNumber: 60,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3007,7 +2955,7 @@ function NavUser(param) {
                                             children: user.name
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 65,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3015,31 +2963,31 @@ function NavUser(param) {
                                             children: user.email
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 83,
+                                            lineNumber: 66,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 64,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevrons$2d$up$2d$down$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronsUpDown$3e$__["ChevronsUpDown"], {
                                     className: "ml-auto size-4"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 88,
+                                    lineNumber: 71,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/nav-user.tsx",
-                            lineNumber: 73,
+                            lineNumber: 56,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/nav-user.tsx",
-                        lineNumber: 72,
+                        lineNumber: 55,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuContent"], {
@@ -3061,7 +3009,7 @@ function NavUser(param) {
                                                     alt: user.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 100,
+                                                    lineNumber: 83,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$avatar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["AvatarFallback"], {
@@ -3069,13 +3017,13 @@ function NavUser(param) {
                                                     children: userInitials
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 101,
+                                                    lineNumber: 84,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 99,
+                                            lineNumber: 82,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3086,7 +3034,7 @@ function NavUser(param) {
                                                     children: user.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 104,
+                                                    lineNumber: 87,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3094,7 +3042,7 @@ function NavUser(param) {
                                                     children: user.email
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 88,
                                                     columnNumber: 19
                                                 }, this),
                                                 (userProfile === null || userProfile === void 0 ? void 0 : (_userProfile_userInfo = userProfile.userInfo) === null || _userProfile_userInfo === void 0 ? void 0 : _userProfile_userInfo.buyerID) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3105,29 +3053,29 @@ function NavUser(param) {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/nav-user.tsx",
-                                                    lineNumber: 107,
+                                                    lineNumber: 90,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/nav-user.tsx",
-                                            lineNumber: 103,
+                                            lineNumber: 86,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/nav-user.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 81,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 97,
+                                lineNumber: 80,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 112,
+                                lineNumber: 95,
                                 columnNumber: 13
                             }, this),
                             (userProfile === null || userProfile === void 0 ? void 0 : userProfile.companies) && userProfile.companies.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
@@ -3140,7 +3088,7 @@ function NavUser(param) {
                                                 children: "Compañías asociadas"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/nav-user.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 101,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3150,23 +3098,23 @@ function NavUser(param) {
                                                         children: company
                                                     }, company, false, {
                                                         fileName: "[project]/src/components/nav-user.tsx",
-                                                        lineNumber: 121,
+                                                        lineNumber: 104,
                                                         columnNumber: 23
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/nav-user.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 102,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 100,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["DropdownMenuSeparator"], {}, void 0, false, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 127,
+                                        lineNumber: 110,
                                         columnNumber: 17
                                     }, this)
                                 ]
@@ -3179,40 +3127,40 @@ function NavUser(param) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {}, void 0, false, {
                                         fileName: "[project]/src/components/nav-user.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 117,
                                         columnNumber: 15
                                     }, this),
                                     "Log out"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/nav-user.tsx",
-                                lineNumber: 131,
+                                lineNumber: 114,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/nav-user.tsx",
-                        lineNumber: 91,
+                        lineNumber: 74,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/nav-user.tsx",
-                lineNumber: 71,
+                lineNumber: 54,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/nav-user.tsx",
-            lineNumber: 70,
+            lineNumber: 53,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/nav-user.tsx",
-        lineNumber: 69,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
-_s(NavUser, "6Hfg3BjR+jSP7xeHJIKGSH8GZn0=", false, function() {
+_s(NavUser, "JD68+W6qJIJgdLHsDLn1JLH07zI=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sidebar$2e$tsx__$5b$client$5d$__$28$ecmascript$29$__["useSidebar"]
     ];
@@ -4493,8 +4441,8 @@ function Dashboard() {
                 if (data.filterOptions) {
                     setFilterOptions(data.filterOptions);
                 }
-            } catch (err) {
-                console.error("Error fetching dashboard stats:", err);
+            } catch (e) {
+                setStats(null);
             } finally{
                 setLoading(false);
             }
