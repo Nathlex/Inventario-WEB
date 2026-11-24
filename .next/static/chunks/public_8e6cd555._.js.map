@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/icel/Documents/GitHub/InventarioIT-web/public/logohs.svg.mjs%20%28structured%20image%20object%29"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 573, height: 535, blurWidth: 0, blurHeight: 0};\n"],"names":[],"mappings":";;;AAAA;;uCACe;IAAE,KAAA,yGAAA,CAAA,UAAG;IAAE,OAAO;IAAK,QAAQ;IAAK,WAAW;IAAG,YAAY;AAAC","debugId":null}}]
+}

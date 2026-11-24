@@ -1,0 +1,51 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/_5b53e17b._.js",
+        "server/edge/chunks/[root-of-the-server]__dc15d093._.js",
+        "server/edge/chunks/edge-wrapper_5a9e1427.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/dashboard/:path*{(\\\\.json)}?",
+          "originalSource": "/dashboard/:path*"
+        },
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/roles/:path*{(\\\\.json)}?",
+          "originalSource": "/roles/:path*"
+        },
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/usuarios/:path*{(\\\\.json)}?",
+          "originalSource": "/usuarios/:path*"
+        },
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/permisos/:path*{(\\\\.json)}?",
+          "originalSource": "/permisos/:path*"
+        },
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/puertos-origen/:path*{(\\\\.json)}?",
+          "originalSource": "/puertos-origen/:path*"
+        },
+        {
+          "regexp": "/inventarioit-staging/:nextData(_next/data/[^/]{1,})?/movimientos/:path*{(\\\\.json)}?",
+          "originalSource": "/movimientos/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "6h0/k7Nl6SUa6pm1iKuUmNhlqcvOfb/m0M6oLvNvpr8=",
+        "__NEXT_PREVIEW_MODE_ID": "d295a854c4736d0fc54903b85be2d59f",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "a6612c0d996327fc5b369c2567859875eb709b457fda2339eaae9327f5143d7d",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "3c29dfd2bb06d8fe863db383e03f3bda2e31ff4ad3dd0f7118ee63f8b49fa62e"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

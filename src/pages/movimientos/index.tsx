@@ -1,0 +1,871 @@
+import { MainLayout } from "@/components/MainLayout";
+import { useEffect, useState, useMemo, useRef, useCallback } from "react";
+import { ProductType, AssetState, Company, Asset, Vendor } from "@/types";
+import api from "@/lib/api";
+import { BulkMovementModal, MovementResult } from "@/components/BulkMovementModal";
+import { MovementHistoryTable } from "@/components/MovementHistoryTable";
+import { DeliveryReportModal } from "@/components/DeliveryReportModal";
+import {
+  OmniboxFilter,
+  type FilterChip,
+  type Facet,
+} from "@/components/OmniboxFilter";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  ChevronLeft,
+  ChevronRight,
+  RefreshCw,
+  ArrowRightLeft,
+  X,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { toast } from "sonner";
+
+const ASSET_GROUPS = ["Equipo", "Accesorio", "Componente", "Otro"] as const;
+
+const INITIAL_COL_WIDTHS: Record<string, number> = {
+  checkbox: 36,
+  name: 180,
+  company: 140,
+  site: 140,
+  department: 160,
+  user: 150,
+  type: 130,
+  brand: 130,
+  serial: 150,
+  state: 110,
+  history: 60,
+};
+
+export default function Movimientos() {
+  // Catalogos
+  const [productTypes, setProductTypes] = useState<ProductType[]>([]);
+  const [assetStates, setAssetStates] = useState<AssetState[]>([]);
+  const [companies, setCompanies] = useState<Company[]>([]);
+  const [vendors, setVendors] = useState<Vendor[]>([]);
+
+  // Activos
+  const [assets, setAssets] = useState<Asset[]>([]);
+  const [filteredAssets, setFilteredAssets] = useState<Asset[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isBulkMovementModalOpen, setIsBulkMovementModalOpen] = useState(false);
+
+  // Filtros y seleccion
+  const [selectedAssets, setSelectedAssets] = useState<Set<number>>(new Set());
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterChips, setFilterChips] = useState<FilterChip[]>([]);
+  const [isSearchPinned, setIsSearchPinned] = useState(false);
+
+  // Paginacion
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalAssets, setTotalAssets] = useState(0);
+
+  // Column resize state
+  const [colWidths, setColWidths] = useState<Record<string, number>>(INITIAL_COL_WIDTHS);
+  const resizingCol = useRef<string | null>(null);
+  const resizeStartX = useRef(0);
+  const resizeStartW = useRef(0);
+
+  const onResizeStart = useCallback(
+    (col: string) => (e: React.MouseEvent) => {
+      e.preventDefault();
+      resizingCol.current = col;
+      resizeStartX.current = e.clientX;
+      resizeStartW.current = colWidths[col];
+
+      const onMouseMove = (ev: MouseEvent) => {
+        if (!resizingCol.current) return;
+        const diff = ev.clientX - resizeStartX.current;
+        const newW = Math.min(400, Math.max(50, resizeStartW.current + diff));
+        setColWidths((prev) => ({ ...prev, [resizingCol.current!]: newW }));
+      };
+
+      const onMouseUp = () => {
+        resizingCol.current = null;
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    },
+    [colWidths]
+  );
+
+  // Panel lateral de historial
+  const [selectedAssetID, setSelectedAssetID] = useState<number | null>(null);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
+  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
+  const [reportConfig, setReportConfig] = useState<{
+    assetID?: number;
+    assetIDs?: number[];
+    availableAssets?: { assetID: number; name: string; vendor: string; model: string; serialNum: string }[];
+    format: "entrega_software" | "entrega_multiitem";
+    title: string;
+    prefillDepartment?: string;
+    prefillSite?: string;
+    prefillReceiverName?: string;
+    allowFormatSelection?: boolean;
+    prefillCompany?: string;
+  } | null>(null);
+
+  // Cargar catalogos
+  useEffect(() => {
+    const loadCatalogs = async () => {
+      try {
+        const [productTypesRes, assetStatesRes, companiesRes, vendorsRes] =
+          await Promise.all([
+            api.productType.getAll().catch(() => []),
+            api.assetState.getAll().catch(() => []),
+            api.company.getAll().catch(() => []),
+            api.vendor.getAll().catch(() => []),
+          ]);
+        setProductTypes(productTypesRes);
+        setAssetStates(assetStatesRes);
+        setCompanies(companiesRes);
+        setVendors(vendorsRes);
+      } catch {
+        // Los catálogos ya manejan fallback individual a []
+      }
+    };
+    loadCatalogs();
+  }, []);
+
+  // Cargar activos paginados desde el servidor
+  const loadAssets = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const res: any = await api.asset.getAll({
+        page: currentPage,
+        limit: pageSize,
+        search: searchQuery.trim() || undefined,
+      });
+
+      const list = res?.data || [];
+      const total = res?.meta?.total || 0;
+
+      setAssets(list);
+      setFilteredAssets(list);
+      setTotalAssets(total);
+    } catch {
+      setAssets([]);
+      setFilteredAssets([]);
+      setTotalAssets(0);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [currentPage, pageSize, searchQuery]);
+
+  useEffect(() => {
+    loadAssets();
+  }, [loadAssets]);
+
+  // Usuarios unicos
+  const uniqueUsers = useMemo(() => {
+    if (!Array.isArray(assets)) return [];
+    const userMap = new Map<number, { userID: number; name: string }>();
+    assets.forEach((asset) => {
+      if (asset.user && asset.user.userID && asset.user.name) {
+        userMap.set(asset.user.userID, {
+          userID: asset.user.userID,
+          name: asset.user.name,
+        });
+      }
+    });
+    return Array.from(userMap.values()).sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+  }, [assets]);
+  
+  // Sitios unicos (desde los activos)
+  const uniqueSites = useMemo(() => {
+    const siteMap = new Map<number, { siteID: number; name: string }>();
+    assets.forEach((a) => {
+      if (a.site && a.site.siteID && a.site.name) {
+        siteMap.set(a.site.siteID, { siteID: a.site.siteID, name: a.site.name });
+      }
+    });
+    return Array.from(siteMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+  }, [assets]);
+
+  // Departamentos unicos (desde los activos)
+  const uniqueDepartments = useMemo(() => {
+    const deptMap = new Map<number, { departID: number; name: string }>();
+    assets.forEach((a) => {
+      if (a.depart && a.depart.departID && a.depart.Name) {
+        deptMap.set(a.depart.departID, { departID: a.depart.departID, name: a.depart.Name });
+      }
+    });
+    return Array.from(deptMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+  }, [assets]);
+
+  // Valores tecnicos unicos (extraidos de los activos)
+  const uniqueRAM = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.ram) values.add(a.assetDetail.ram); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueMemoryType = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.physicalMemory) values.add(a.assetDetail.physicalMemory); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueHddCapacity = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.hddCapacity) values.add(a.assetDetail.hddCapacity); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueHddModel = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.hddModel) values.add(a.assetDetail.hddModel); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueOS = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.operatingSystem) values.add(a.assetDetail.operatingSystem); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueProcessors = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.processor) values.add(a.assetDetail.processor); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueManufacturers = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.productManuf) values.add(a.assetDetail.productManuf); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  // Tipos filtrados por los chips de grupo (para reducir opciones del combobox Tipo)
+  const selectedGroupValues = useMemo(() => {
+    const set = new Set<string>();
+    filterChips.forEach((c) => {
+      if (c.facet === "grupo") set.add(c.value);
+    });
+    return set;
+  }, [filterChips]);
+
+  const filteredProductTypes = useMemo(() => {
+    if (selectedGroupValues.size === 0) return productTypes;
+    return productTypes.filter((pt) => pt.group && selectedGroupValues.has(pt.group));
+  }, [productTypes, selectedGroupValues]);
+
+  // Facetas para omnibox (mismas keys que Inventario)
+  const facets: Facet[] = useMemo(
+    () => [
+      {
+        key: "grupo",
+        label: "Grupo",
+        color: "slate",
+        options: ASSET_GROUPS.map((g) => ({ value: g, label: g })),
+      },
+      {
+        key: "empresa",
+        label: "Empresa",
+        color: "blue",
+        options: companies.map((c) => ({
+          value: String(c.companyID),
+          label: c.description,
+        })),
+      },
+      {
+        key: "site",
+        label: "Site",
+        color: "sky",
+        options: uniqueSites.map((s) => ({
+          value: String(s.siteID),
+          label: s.name,
+        })),
+      },
+      {
+        key: "departamento",
+        label: "Departamento",
+        color: "lime",
+        options: uniqueDepartments.map((d) => ({
+          value: String(d.departID),
+          label: d.name,
+        })),
+      },
+      {
+        key: "usuario",
+        label: "Usuario",
+        color: "emerald",
+        options: uniqueUsers.map((u) => ({
+          value: String(u.userID),
+          label: u.name,
+        })),
+      },
+      {
+        key: "estado",
+        label: "Estado",
+        color: "amber",
+        options: assetStates.map((s) => ({
+          value: String(s.assetStateID),
+          label: s.name,
+        })),
+      },
+      {
+        key: "tipo",
+        label: "Tipo",
+        color: "purple",
+        options: filteredProductTypes.map((pt) => ({
+          value: String(pt.productTypeID),
+          label: pt.name,
+        })),
+      },
+      {
+        key: "proveedor",
+        label: "Proveedor",
+        color: "violet",
+        options: vendors.map((v) => ({
+          value: String(v.vendorID),
+          label: v.name,
+        })),
+      },
+      {
+        key: "fabricante",
+        label: "Fabricante",
+        color: "stone",
+        options: uniqueManufacturers.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "ram",
+        label: "RAM",
+        color: "cyan",
+        options: uniqueRAM.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "memoria_tipo",
+        label: "Tipo Memoria",
+        color: "teal",
+        options: uniqueMemoryType.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "disco_cap",
+        label: "Capacidad Disco",
+        color: "orange",
+        options: uniqueHddCapacity.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "disco_tipo",
+        label: "Tipo Disco",
+        color: "rose",
+        options: uniqueHddModel.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "so",
+        label: "Sistema Operativo",
+        color: "indigo",
+        options: uniqueOS.map((v) => ({ value: v, label: v })),
+      },
+      {
+        key: "procesador",
+        label: "Procesador",
+        color: "fuchsia",
+        options: uniqueProcessors.map((v) => ({ value: v, label: v })),
+      },
+    ],
+    [
+      companies,
+      uniqueSites,
+      uniqueDepartments,
+      uniqueUsers,
+      assetStates,
+      filteredProductTypes,
+      vendors,
+      uniqueManufacturers,
+      uniqueRAM,
+      uniqueMemoryType,
+      uniqueHddCapacity,
+      uniqueHddModel,
+      uniqueOS,
+      uniqueProcessors,
+    ]
+  );
+
+  // Aplicar filtros
+  useEffect(() => {
+    let result = [...assets];
+
+    const chipsByFacet = new Map<string, Set<string>>();
+    filterChips.forEach((chip) => {
+      if (!chipsByFacet.has(chip.facet)) {
+        chipsByFacet.set(chip.facet, new Set());
+      }
+      chipsByFacet.get(chip.facet)!.add(chip.value);
+    });
+
+    if (chipsByFacet.has("grupo")) {
+      const values = chipsByFacet.get("grupo")!;
+      result = result.filter((a) => a.productType?.group && values.has(a.productType.group));
+    }
+    if (chipsByFacet.has("empresa")) {
+      const values = chipsByFacet.get("empresa")!;
+      result = result.filter((a) => values.has(String(a.companyID)));
+    }
+    if (chipsByFacet.has("site")) {
+      const values = chipsByFacet.get("site")!;
+      result = result.filter((a) => values.has(String(a.siteID)));
+    }
+    if (chipsByFacet.has("departamento")) {
+      const values = chipsByFacet.get("departamento")!;
+      result = result.filter((a) => a.depart && values.has(String(a.depart.departID)));
+    }
+    if (chipsByFacet.has("usuario")) {
+      const values = chipsByFacet.get("usuario")!;
+      result = result.filter((a) => values.has(String(a.userID)));
+    }
+    if (chipsByFacet.has("estado")) {
+      const values = chipsByFacet.get("estado")!;
+      result = result.filter((a) => values.has(String(a.assetState)));
+    }
+    if (chipsByFacet.has("tipo")) {
+      const values = chipsByFacet.get("tipo")!;
+      result = result.filter((a) => values.has(String(a.productTypeID)));
+    }
+    if (chipsByFacet.has("proveedor")) {
+      const values = chipsByFacet.get("proveedor")!;
+      result = result.filter((a) => values.has(String(a.vendorID)));
+    }
+    if (chipsByFacet.has("fabricante")) {
+      const values = chipsByFacet.get("fabricante")!;
+      result = result.filter((a) => a.assetDetail?.productManuf && values.has(a.assetDetail.productManuf));
+    }
+    if (chipsByFacet.has("ram")) {
+      const values = chipsByFacet.get("ram")!;
+      result = result.filter((a) => a.assetDetail?.ram && values.has(a.assetDetail.ram));
+    }
+    if (chipsByFacet.has("memoria_tipo")) {
+      const values = chipsByFacet.get("memoria_tipo")!;
+      result = result.filter((a) => a.assetDetail?.physicalMemory && values.has(a.assetDetail.physicalMemory));
+    }
+    if (chipsByFacet.has("disco_cap")) {
+      const values = chipsByFacet.get("disco_cap")!;
+      result = result.filter((a) => a.assetDetail?.hddCapacity && values.has(a.assetDetail.hddCapacity));
+    }
+    if (chipsByFacet.has("disco_tipo")) {
+      const values = chipsByFacet.get("disco_tipo")!;
+      result = result.filter((a) => a.assetDetail?.hddModel && values.has(a.assetDetail.hddModel));
+    }
+    if (chipsByFacet.has("so")) {
+      const values = chipsByFacet.get("so")!;
+      result = result.filter((a) => a.assetDetail?.operatingSystem && values.has(a.assetDetail.operatingSystem));
+    }
+    if (chipsByFacet.has("procesador")) {
+      const values = chipsByFacet.get("procesador")!;
+      result = result.filter((a) => a.assetDetail?.processor && values.has(a.assetDetail.processor));
+    }
+
+    setFilteredAssets(result);
+  }, [assets, filterChips]);
+
+  // Resetear a página 1 solo al interactuar con filtros o búsqueda
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterChips, searchQuery]);
+
+  // Paginación server-side directa
+  const paginatedAssets = filteredAssets;
+  const totalPages = Math.max(1, Math.ceil(totalAssets / pageSize));
+  const startItem = totalAssets > 0 ? (currentPage - 1) * pageSize + 1 : 0;
+  const endItem = Math.min(currentPage * pageSize, totalAssets);
+
+  // Handlers
+  const handleRefresh = () => {
+    loadAssets();
+    setRefreshTrigger((prev) => prev + 1);
+    toast.success("Lista actualizada");
+  };
+
+  const isAssetBaja = (asset: Asset) => asset.assetStateInfo?.name === "Baja";
+
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
+      setSelectedAssets(new Set(paginatedAssets.filter((a) => !isAssetBaja(a)).map((a) => a.assetID)));
+    } else {
+      setSelectedAssets(new Set());
+    }
+  };
+
+  const handleSelectAsset = (assetID: number, checked: boolean) => {
+    const newSelected = new Set(selectedAssets);
+    if (checked) {
+      newSelected.add(assetID);
+    } else {
+      newSelected.delete(assetID);
+    }
+    setSelectedAssets(newSelected);
+  };
+
+  const handleBulkMovement = () => {
+    if (selectedAssets.size === 0) {
+      toast.warning("Selecciona al menos un activo");
+      return;
+    }
+    setIsBulkMovementModalOpen(true);
+  };
+
+  const handleBulkMovementSuccess = (result: MovementResult) => {
+    // 1. Si es RESGUARDO, REPARACION o BAJA, NO se abre reporte
+    const noReportTypes = ["RESGUARDO", "REPARACION", "BAJA"];
+    if (noReportTypes.includes(result.movementType) || result.movementType !== "REASIGNACION") {
+      setSelectedAssets(new Set());
+      loadAssets();
+      return;
+    }
+
+    // 2. Debe ser exactamente 1 activo y del tipo Equipo
+    const isSingleItem = result.assets.length === 1;
+    const singleAsset = result.assets[0];
+    const isEquipo = singleAsset?.productType?.group?.trim().toUpperCase() === "EQUIPO";
+    const allowSoftwareReport = isSingleItem && isEquipo;
+
+    // 3. Nombres de la localización destino
+    const targetCompany = companies.find((c) => c.companyID === result.companyID)?.description;
+    const targetSite = uniqueSites.find((s) => s.siteID === result.siteID)?.name;
+    const targetDepart = uniqueDepartments.find((d) => d.departID === result.departID)?.name;
+
+    // 4. Nombre del responsable
+    const receiver = result.userName?.trim() || "USUARIO RESPONSABLE";
+
+    setReportConfig({
+      format: allowSoftwareReport ? "entrega_software" : "entrega_multiitem",
+      allowFormatSelection: allowSoftwareReport,
+      title: "ENTREGA DE EQUIPO",
+      assetID: singleAsset?.assetID,
+      assetIDs: result.assetIDs,
+      availableAssets: result.assets.map((a) => ({
+        assetID: a.assetID,
+        name: a.name,
+        vendor: a.vendor?.name || "-",
+        model: a.assetDetail?.model || "-",
+        serialNum: a.assetDetail?.serialNum || "-",
+      })),
+      prefillReceiverName: receiver,
+      prefillDepartment: targetDepart,
+      prefillSite: targetSite,
+      prefillCompany: targetCompany,
+    });
+
+    setIsReportModalOpen(true);
+    setSelectedAssets(new Set());
+    loadAssets();
+  };
+
+  const handleViewHistory = (assetID: number) => {
+    setSelectedAssetID(selectedAssetID === assetID ? null : assetID);
+  };
+
+  const isAllSelected =
+    paginatedAssets.length > 0 &&
+    paginatedAssets.every((a) => selectedAssets.has(a.assetID));
+
+  return (
+    <MainLayout
+      breadcrumb={{
+        title: "Movimientos",
+        subtitle: "Gestión de movimientos de activos TI",
+      }}
+    >
+      {() => (
+        <div className="flex flex-col h-full bg-white">
+
+          {/* Toolbar */}
+          <div className="flex items-center gap-3 px-4 py-2 border-b bg-gray-50">
+            {/* Omnibox */}
+            <OmniboxFilter
+              facets={facets}
+              chips={filterChips}
+              onChipsChange={setFilterChips}
+              searchQuery={searchQuery}
+              onSearchQueryChange={setSearchQuery}
+              pinned={isSearchPinned}
+              onPinnedChange={setIsSearchPinned}
+            />
+
+            {/* Acciones */}
+            <div className="flex items-center gap-1 shrink-0">
+              <Button
+                variant="default"
+                size="sm"
+                onClick={handleBulkMovement}
+                disabled={selectedAssets.size === 0}
+                className="h-8 text-sm font-normal bg-blue-600 hover:bg-blue-700"
+              >
+                <ArrowRightLeft className="h-4 w-4 mr-1" />
+                Generar Movimiento
+                {selectedAssets.size > 0 && (
+                  <span className="ml-1 px-1.5 py-0.5 text-xs bg-white/20 rounded-full">
+                    {selectedAssets.size}
+                  </span>
+                )}
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRefresh}
+                className="h-8 text-sm font-normal"
+              >
+                <RefreshCw className="h-4 w-4" />
+              </Button>
+            </div>
+
+            {/* Paginacion */}
+            <div className="flex items-center gap-1.5 text-sm text-gray-600 shrink-0">
+              <select
+                value={pageSize}
+                onChange={(e) => {
+                  setPageSize(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+                className="h-7 rounded border border-gray-300 bg-white px-1 text-sm text-gray-600"
+              >
+                {[20, 50, 100].map((size) => (
+                  <option key={size} value={size}>
+                    {size}
+                  </option>
+                ))}
+              </select>
+              <span className="whitespace-nowrap">
+                {startItem}-{endItem} de {totalAssets}
+              </span>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-7 w-7"
+                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                disabled={currentPage <= 1 || isLoading}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-7 w-7"
+                onClick={() =>
+                  setCurrentPage((p) => Math.min(totalPages, p + 1))
+                }
+                disabled={currentPage >= totalPages || isLoading}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Contenido principal */}
+          <div className="flex flex-1 overflow-hidden">
+            {/* Tabla de activos */}
+            <div
+              className={`flex-1 overflow-auto ${selectedAssetID ? "border-r" : ""}`}
+            >
+              {isLoading ? (
+                <div className="flex items-center justify-center h-64">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                </div>
+              ) : (
+                <Table style={{ tableLayout: "fixed", width: Object.values(colWidths).reduce((a, b) => a + b, 0) }}>
+                  <colgroup>
+                    {Object.entries(colWidths).map(([key, w]) => (
+                      <col key={key} style={{ width: w }} />
+                    ))}
+                  </colgroup>
+                  <TableHeader className="bg-gray-50 sticky top-0 z-10">
+                    <TableRow>
+                      {[
+                        { key: "checkbox", label: "" },
+                        { key: "name", label: "NOMBRE" },
+                        { key: "company", label: "COMPAÑIA" },
+                        { key: "site", label: "SITE" },
+                        { key: "department", label: "DEPARTAMENTO" },
+                        { key: "user", label: "USUARIO" },
+                        { key: "type", label: "TIPO" },
+                        { key: "brand", label: "MARCA" },
+                        { key: "serial", label: "SERIE" },
+                        { key: "state", label: "ESTADO" },
+                        { key: "history", label: "HIST." },
+                      ].map((col) => (
+                        <TableHead
+                          key={col.key}
+                          className="font-semibold text-gray-700 relative select-none overflow-hidden text-ellipsis whitespace-nowrap"
+                          style={{ width: colWidths[col.key] }}
+                        >
+                          {col.key === "checkbox" ? (
+                            <Checkbox
+                              checked={isAllSelected}
+                              onCheckedChange={handleSelectAll}
+                            />
+                          ) : (
+                            col.label
+                          )}
+                          <span
+                            onMouseDown={onResizeStart(col.key)}
+                            className="absolute right-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-blue-400 active:bg-blue-500"
+                          />
+                        </TableHead>
+                      ))}
+                    </TableRow>
+                  </TableHeader>
+
+                  <TableBody>
+                    {paginatedAssets.length === 0 ? (
+                      <TableRow>
+                        <TableCell
+                          colSpan={11}
+                          className="h-24 text-center text-gray-500"
+                        >
+                          No se encontraron activos
+                        </TableCell>
+                      </TableRow>
+                    ) : (
+                      paginatedAssets.map((asset) => {
+                        const isBaja = isAssetBaja(asset);
+                        return (
+                        <TableRow
+                          key={asset.assetID}
+                          className={cn(
+                            "hover:bg-gray-50",
+                            selectedAssets.has(asset.assetID) && "bg-blue-50",
+                            selectedAssetID === asset.assetID && "bg-amber-50",
+                            isBaja && "opacity-60 bg-red-50/50"
+                          )}
+                        >
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            <Checkbox
+                              checked={selectedAssets.has(asset.assetID)}
+                              onCheckedChange={(checked) =>
+                                handleSelectAsset(asset.assetID, !!checked)
+                              }
+                              disabled={isBaja}
+                              title={isBaja ? "Activo dado de baja - no se permiten movimientos" : undefined}
+                            />
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            <span className="font-medium text-gray-900 truncate block">
+                              {asset.name}
+                            </span>
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.company?.description || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.site?.name || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.depart?.Name || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.user?.name || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.productType?.name || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.assetDetail?.productManuf || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            {asset.assetDetail?.serialNum || "-"}
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            <span className={cn(
+                              isBaja && "text-red-600 font-semibold"
+                            )}>
+                              {asset.assetStateInfo?.name || "-"}
+                            </span>
+                          </TableCell>
+                          <TableCell className="overflow-hidden text-ellipsis whitespace-nowrap">
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-7 w-7"
+                              title="Ver historial"
+                              onClick={() => handleViewHistory(asset.assetID)}
+                            >
+                              <ArrowRightLeft className="h-4 w-4 text-gray-500" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                        );
+                      })
+                    )}
+                  </TableBody>
+                </Table>
+              )}
+            </div>
+
+            {/* Panel lateral: Historial del activo seleccionado */}
+            {selectedAssetID && (
+              <div className="w-[420px] overflow-auto bg-gray-50 p-4">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-sm font-semibold text-gray-700">
+                    Historial del Activo
+                  </h3>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-6 w-6"
+                    onClick={() => setSelectedAssetID(null)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+                <MovementHistoryTable
+                  assetID={selectedAssetID}
+                  refreshTrigger={refreshTrigger}
+                  onMovementUpdated={() => loadAssets()}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Modal de Movimiento Masivo */}
+          <BulkMovementModal
+            assets={assets}
+            selectedAssetIDs={Array.from(selectedAssets)}
+            isOpen={isBulkMovementModalOpen}
+            onClose={() => setIsBulkMovementModalOpen(false)}
+            onSuccess={handleBulkMovementSuccess}
+          />
+
+          {/* Modal de Reporte automático después del movimiento */}
+          {reportConfig && (
+            <DeliveryReportModal
+              assetID={reportConfig.assetID}
+              assetIDs={reportConfig.assetIDs}
+              availableAssets={reportConfig.availableAssets}
+              format={reportConfig.format}
+              allowFormatSelection={reportConfig.allowFormatSelection}
+              title={reportConfig.title}
+              prefillDepartment={reportConfig.prefillDepartment}
+              prefillSite={reportConfig.prefillSite}
+              prefillReceiverName={reportConfig.prefillReceiverName}
+              prefillCompany={reportConfig.prefillCompany}
+              isOpen={isReportModalOpen}
+              onClose={() => {
+                setIsReportModalOpen(false);
+                setReportConfig(null);
+              }}
+            />
+          )}
+        </div>
+      )}
+    </MainLayout>
+  );
+}

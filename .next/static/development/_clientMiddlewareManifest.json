@@ -1,0 +1,26 @@
+[
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/dashboard(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/dashboard/:path*"
+  },
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/roles(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/roles/:path*"
+  },
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/usuarios(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/usuarios/:path*"
+  },
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/permisos(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/permisos/:path*"
+  },
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/puertos-origen(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/puertos-origen/:path*"
+  },
+  {
+    "regexp": "^\\/inventarioit-staging(?:\\/(_next\\/data\\/[^/]{1,}))?\\/movimientos(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+    "originalSource": "/movimientos/:path*"
+  }
+]

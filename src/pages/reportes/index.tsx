@@ -1,0 +1,1014 @@
+import { MainLayout } from "@/components/MainLayout";
+import { useEffect, useState, useMemo } from "react";
+import { Asset, Company, Site, AssetState, Vendor, ProductType } from "@/types";
+import api from "@/lib/api";
+import {
+  OmniboxFilter,
+  type FilterChip,
+  type Facet,
+} from "@/components/OmniboxFilter";
+import { Button } from "@/components/ui/button";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  FileSpreadsheet,
+  FileText,
+  Upload,
+  Loader2,
+  Package,
+  Warehouse,
+  ShieldAlert,
+  ClipboardList,
+  Cpu,
+  CalendarClock,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useRef } from "react";
+import { toast } from "sonner";
+import { cn } from "@/lib/utils";
+
+function triggerDownload(blob: Blob, filename: string) {
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  window.URL.revokeObjectURL(url);
+  document.body.removeChild(a);
+}
+
+type SubTab = "administrativo" | "tecnico" | "ciclo-vida";
+
+export default function Reportes() {
+  const [assets, setAssets] = useState<Asset[]>([]);
+  const [companies, setCompanies] = useState<Company[]>([]);
+  const [sites, setSites] = useState<Site[]>([]);
+  const [departments, setDepartments] = useState<{ departID: number; name: string }[]>([]);
+  const [assetStates, setAssetStates] = useState<AssetState[]>([]);
+  const [vendors, setVendors] = useState<Vendor[]>([]);
+  const [productTypes, setProductTypes] = useState<ProductType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isExporting, setIsExporting] = useState<string | null>(null);
+  const [isImporting, setIsImporting] = useState(false);
+  const csvInputRef = useRef<HTMLInputElement>(null);
+
+  // Omnibox filter state (mismos nombres que Inventario/Movimientos/Historial)
+  const [filterChips, setFilterChips] = useState<FilterChip[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchPinned, setIsSearchPinned] = useState(true);
+
+  // Active sub-tab
+  const [activeTab, setActiveTab] = useState<SubTab>("administrativo");
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  // Reset page when filters, tab or page size change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterChips, searchQuery, activeTab, pageSize]);
+
+  const loadData = async () => {
+    try {
+      setIsLoading(true);
+      const [
+        assetsRes,
+        companiesRes,
+        sitesRes,
+        statesRes,
+        deptsRes,
+        vendorsRes,
+        productTypesRes,
+      ] = await Promise.all([
+        api.asset.getAll(),
+        api.company.getAll(),
+        api.site.getAll(),
+        api.assetState.getAll(),
+        api.user.getDepartments(),
+        api.vendor.getAll(),
+        api.productType.getAll(),
+      ]);
+      setAssets((assetsRes?.data ?? []) as Asset[]);
+      setCompanies(companiesRes);
+      setSites(sitesRes);
+      setAssetStates(statesRes);
+      setDepartments(deptsRes);
+      setVendors(vendorsRes);
+      setProductTypes(productTypesRes);
+    } catch (error: any) {
+      const status = error?.response?.status;
+      if (status === 401) {
+        toast.error("Tu sesión ha expirado. Inicia sesión nuevamente.");
+      } else {
+        toast.error("Error al cargar los datos del reporte.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Usuarios unicos (desde los activos)
+  const uniqueUsers = useMemo(() => {
+    const userMap = new Map<number, { userID: number; name: string }>();
+    assets.forEach((a) => {
+      if (a.user?.userID && a.user?.name) {
+        userMap.set(a.user.userID, { userID: a.user.userID, name: a.user.name });
+      }
+    });
+    return Array.from(userMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+  }, [assets]);
+
+  // Valores tecnicos unicos (extraidos de los activos)
+  const uniqueRAM = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.ram) values.add(a.assetDetail.ram); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueMemoryType = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.physicalMemory) values.add(a.assetDetail.physicalMemory); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueHddCapacity = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.hddCapacity) values.add(a.assetDetail.hddCapacity); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueHddModel = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.hddModel) values.add(a.assetDetail.hddModel); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueOS = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.operatingSystem) values.add(a.assetDetail.operatingSystem); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueProcessors = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.processor) values.add(a.assetDetail.processor); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  const uniqueManufacturers = useMemo(() => {
+    const values = new Set<string>();
+    assets.forEach((a) => { if (a.assetDetail?.productManuf) values.add(a.assetDetail.productManuf); });
+    return Array.from(values).sort();
+  }, [assets]);
+
+  // Build facets for Omnibox (mismos que Inventario)
+  const facets: Facet[] = useMemo(() => {
+    const result: Facet[] = [];
+
+    // Grupo (mismo que Inventario)
+    const uniqueGroups = Array.from(
+      new Set(
+        assets
+          .map((a) => a.productType?.group)
+          .filter((g): g is string => Boolean(g))
+      )
+    ).sort();
+    if (uniqueGroups.length > 0) {
+      result.push({
+        key: "grupo",
+        label: "Grupo",
+        color: "slate",
+        options: uniqueGroups.map((g) => ({ value: g, label: g })),
+      });
+    }
+
+    // Empresa
+    if (companies.length > 0) {
+      result.push({
+        key: "empresa",
+        label: "Empresa",
+        color: "blue",
+        options: companies.map((c) => ({
+          value: c.companyID.toString(),
+          label: c.description,
+        })),
+      });
+    }
+
+    // Sitio (Hotel)
+    if (sites.length > 0) {
+      result.push({
+        key: "site",
+        label: "Sitio / Hotel",
+        color: "sky",
+        options: sites.map((s) => ({
+          value: s.siteID.toString(),
+          label: s.name,
+        })),
+      });
+    }
+
+    // Departamento
+    const uniqueDepts = new Map<string, string>();
+    departments.forEach((d) => {
+      uniqueDepts.set(d.departID.toString(), d.name);
+    });
+    assets.forEach((a) => {
+      if (a.depart?.departID && a.depart?.Name) {
+        uniqueDepts.set(a.depart.departID.toString(), a.depart.Name);
+      }
+    });
+    if (uniqueDepts.size > 0) {
+      result.push({
+        key: "departamento",
+        label: "Departamento",
+        color: "lime",
+        options: Array.from(uniqueDepts.entries())
+          .map(([value, label]) => ({ value, label }))
+          .sort((a, b) => a.label.localeCompare(b.label)),
+      });
+    }
+
+    // Usuario
+    if (uniqueUsers.length > 0) {
+      result.push({
+        key: "usuario",
+        label: "Usuario",
+        color: "emerald",
+        options: uniqueUsers.map((u) => ({
+          value: String(u.userID),
+          label: u.name,
+        })),
+      });
+    }
+
+    // Estado
+    if (assetStates.length > 0) {
+      result.push({
+        key: "estado",
+        label: "Estado",
+        color: "amber",
+        options: assetStates.map((s) => ({
+          value: String(s.assetStateID),
+          label: s.name,
+        })),
+      });
+    }
+
+    // Tipo
+    if (productTypes.length > 0) {
+      result.push({
+        key: "tipo",
+        label: "Tipo",
+        color: "purple",
+        options: productTypes.map((pt) => ({
+          value: String(pt.productTypeID),
+          label: pt.name,
+        })),
+      });
+    }
+
+    // Proveedor
+    if (vendors.length > 0) {
+      result.push({
+        key: "proveedor",
+        label: "Proveedor",
+        color: "violet",
+        options: vendors.map((v) => ({
+          value: String(v.vendorID),
+          label: v.name,
+        })),
+      });
+    }
+
+    // Fabricante
+    if (uniqueManufacturers.length > 0) {
+      result.push({
+        key: "fabricante",
+        label: "Fabricante",
+        color: "stone",
+        options: uniqueManufacturers.map((v) => ({ value: v, label: v })),
+      });
+    }
+
+    // Filtros tecnicos
+    if (uniqueRAM.length > 0) {
+      result.push({
+        key: "ram",
+        label: "RAM",
+        color: "cyan",
+        options: uniqueRAM.map((v) => ({ value: v, label: v })),
+      });
+    }
+    if (uniqueMemoryType.length > 0) {
+      result.push({
+        key: "memoria_tipo",
+        label: "Tipo Memoria",
+        color: "teal",
+        options: uniqueMemoryType.map((v) => ({ value: v, label: v })),
+      });
+    }
+    if (uniqueHddCapacity.length > 0) {
+      result.push({
+        key: "disco_cap",
+        label: "Capacidad Disco",
+        color: "orange",
+        options: uniqueHddCapacity.map((v) => ({ value: v, label: v })),
+      });
+    }
+    if (uniqueHddModel.length > 0) {
+      result.push({
+        key: "disco_tipo",
+        label: "Tipo Disco",
+        color: "rose",
+        options: uniqueHddModel.map((v) => ({ value: v, label: v })),
+      });
+    }
+    if (uniqueOS.length > 0) {
+      result.push({
+        key: "so",
+        label: "Sistema Operativo",
+        color: "indigo",
+        options: uniqueOS.map((v) => ({ value: v, label: v })),
+      });
+    }
+    if (uniqueProcessors.length > 0) {
+      result.push({
+        key: "procesador",
+        label: "Procesador",
+        color: "fuchsia",
+        options: uniqueProcessors.map((v) => ({ value: v, label: v })),
+      });
+    }
+
+    return result;
+  }, [
+    companies,
+    sites,
+    departments,
+    assets,
+    uniqueUsers,
+    assetStates,
+    productTypes,
+    vendors,
+    uniqueManufacturers,
+    uniqueRAM,
+    uniqueMemoryType,
+    uniqueHddCapacity,
+    uniqueHddModel,
+    uniqueOS,
+    uniqueProcessors,
+  ]);
+
+  // Filter assets based on chips and search query
+  const filteredAssets = useMemo(() => {
+    let result = [...assets];
+
+    // Group chips by facet
+    const chipsByFacet = new Map<string, Set<string>>();
+    filterChips.forEach((chip) => {
+      if (!chipsByFacet.has(chip.facet)) {
+        chipsByFacet.set(chip.facet, new Set());
+      }
+      chipsByFacet.get(chip.facet)!.add(chip.value);
+    });
+
+    // Filter by Grupo (nuevo, alineado con Inventario)
+    if (chipsByFacet.has("grupo")) {
+      const values = chipsByFacet.get("grupo")!;
+      result = result.filter((a) => a.productType?.group && values.has(a.productType.group));
+    }
+
+    // Filter by Empresa
+    if (chipsByFacet.has("empresa")) {
+      const values = chipsByFacet.get("empresa")!;
+      result = result.filter((a) => values.has(a.companyID?.toString()));
+    }
+
+    // Filter by Sitio
+    if (chipsByFacet.has("site")) {
+      const values = chipsByFacet.get("site")!;
+      result = result.filter((a) => values.has(a.siteID?.toString()));
+    }
+
+    // Filter by Departamento
+    if (chipsByFacet.has("departamento")) {
+      const values = chipsByFacet.get("departamento")!;
+      result = result.filter((a) => values.has(a.depart?.departID?.toString() || ""));
+    }
+
+    // Filter by Usuario
+    if (chipsByFacet.has("usuario")) {
+      const values = chipsByFacet.get("usuario")!;
+      result = result.filter((a) => values.has(String(a.userID)));
+    }
+
+    // Filter by Estado
+    if (chipsByFacet.has("estado")) {
+      const values = chipsByFacet.get("estado")!;
+      result = result.filter((a) => values.has(String(a.assetState)));
+    }
+
+    // Filter by Tipo
+    if (chipsByFacet.has("tipo")) {
+      const values = chipsByFacet.get("tipo")!;
+      result = result.filter((a) => values.has(String(a.productTypeID)));
+    }
+
+    // Filter by Proveedor
+    if (chipsByFacet.has("proveedor")) {
+      const values = chipsByFacet.get("proveedor")!;
+      result = result.filter((a) => values.has(String(a.vendorID)));
+    }
+
+    // Filter by Fabricante
+    if (chipsByFacet.has("fabricante")) {
+      const values = chipsByFacet.get("fabricante")!;
+      result = result.filter((a) => a.assetDetail?.productManuf && values.has(a.assetDetail.productManuf));
+    }
+
+    // Filtros tecnicos
+    if (chipsByFacet.has("ram")) {
+      const values = chipsByFacet.get("ram")!;
+      result = result.filter((a) => a.assetDetail?.ram && values.has(a.assetDetail.ram));
+    }
+    if (chipsByFacet.has("memoria_tipo")) {
+      const values = chipsByFacet.get("memoria_tipo")!;
+      result = result.filter((a) => a.assetDetail?.physicalMemory && values.has(a.assetDetail.physicalMemory));
+    }
+    if (chipsByFacet.has("disco_cap")) {
+      const values = chipsByFacet.get("disco_cap")!;
+      result = result.filter((a) => a.assetDetail?.hddCapacity && values.has(a.assetDetail.hddCapacity));
+    }
+    if (chipsByFacet.has("disco_tipo")) {
+      const values = chipsByFacet.get("disco_tipo")!;
+      result = result.filter((a) => a.assetDetail?.hddModel && values.has(a.assetDetail.hddModel));
+    }
+    if (chipsByFacet.has("so")) {
+      const values = chipsByFacet.get("so")!;
+      result = result.filter((a) => a.assetDetail?.operatingSystem && values.has(a.assetDetail.operatingSystem));
+    }
+    if (chipsByFacet.has("procesador")) {
+      const values = chipsByFacet.get("procesador")!;
+      result = result.filter((a) => a.assetDetail?.processor && values.has(a.assetDetail.processor));
+    }
+
+    // Text search (mismo conjunto de campos que Inventario y Movimientos)
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter((a) =>
+        a.name?.toLowerCase().includes(query) ||
+        a.assetDetail?.serialNum?.toLowerCase().includes(query) ||
+        a.assetDetail?.assetTAG?.toLowerCase().includes(query) ||
+        a.user?.name?.toLowerCase().includes(query) ||
+        a.depart?.Name?.toLowerCase().includes(query) ||
+        a.vendor?.name?.toLowerCase().includes(query) ||
+        a.productType?.name?.toLowerCase().includes(query) ||
+        a.assetDetail?.ipAddress?.toLowerCase().includes(query) ||
+        a.assetDetail?.macAddress?.toLowerCase().includes(query) ||
+        a.site?.name?.toLowerCase().includes(query)
+      );
+    }
+
+    return result;
+  }, [assets, filterChips, searchQuery]);
+
+  // KPI calculations
+  const kpis = useMemo(() => {
+    const total = filteredAssets.length;
+    const inStock = filteredAssets.filter(
+      (a) => a.assetStateInfo?.name === "Stock" || a.assetStateInfo?.name === "En Stock"
+    ).length;
+    const now = new Date();
+    const warrantyExpired = filteredAssets.filter((a) => {
+      const expiry = a.assetDetail?.warrantyExpiryDate || a.assetDetail?.warrantyExpiry || a.assetDetail?.assetExpiryDate;
+      if (!expiry) return false;
+      return new Date(expiry) < now;
+    }).length;
+    return { total, inStock, warrantyExpired };
+  }, [filteredAssets]);
+
+  // Pagination
+  const totalPages = Math.max(1, Math.ceil(filteredAssets.length / pageSize));
+  const paginatedAssets = useMemo(() => {
+    const start = (currentPage - 1) * pageSize;
+    return filteredAssets.slice(start, start + pageSize);
+  }, [filteredAssets, currentPage, pageSize]);
+
+  // Import handler
+  const handleImportCsv = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsImporting(true);
+      const result = await api.report.importCsv(file);
+      toast.success(result.message);
+      if (result.errors?.length > 0) {
+        toast.warning(`${result.errors.length} errores encontrados`);
+      }
+      loadData();
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Error al importar CSV");
+    } finally {
+      setIsImporting(false);
+      if (csvInputRef.current) csvInputRef.current.value = "";
+    }
+  };
+
+  // Export handlers
+  const handleExportCsv = async () => {
+    try {
+      setIsExporting("csv");
+      const filters: { group?: string; companyID?: number; assetState?: number } = {};
+      const companyChips = filterChips.filter((c) => c.facet === "empresa");
+      if (companyChips.length === 1) {
+        filters.companyID = parseInt(companyChips[0].value);
+      }
+      const blob = await api.report.downloadAssetsCsv(filters);
+      const dateStr = new Date().toISOString().split("T")[0];
+      triggerDownload(
+        new Blob([blob], { type: "text/csv; charset=utf-8" }),
+        `inventario_${dateStr}.csv`
+      );
+      toast.success("Reporte exportado a CSV exitosamente");
+    } catch {
+      toast.error("Error al exportar el reporte");
+    } finally {
+      setIsExporting(null);
+    }
+  };
+
+  const handleExportExcel = async () => {
+    try {
+      setIsExporting("excel");
+      const filters: { group?: string; companyID?: number; assetState?: number } = {};
+      const companyChips = filterChips.filter((c) => c.facet === "empresa");
+      if (companyChips.length === 1) {
+        filters.companyID = parseInt(companyChips[0].value);
+      }
+      const blob = await api.report.downloadAssetsExcel(filters);
+      const dateStr = new Date().toISOString().split("T")[0];
+      triggerDownload(
+        new Blob([blob], {
+          type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        }),
+        `reporte_inventario_${activeTab}_${dateStr}.xlsx`
+      );
+      toast.success("Reporte exportado a Excel exitosamente");
+    } catch {
+      toast.error("Error al exportar el reporte");
+    } finally {
+      setIsExporting(null);
+    }
+  };
+
+  const formatDate = (dateStr?: string | null) => {
+    if (!dateStr) return "-";
+    try {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString("es-MX", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    } catch {
+      return dateStr;
+    }
+  };
+
+  const isWarrantyExpired = (dateStr?: string | null) => {
+    if (!dateStr) return false;
+    return new Date(dateStr) < new Date();
+  };
+
+  const subTabs: { key: SubTab; label: string; icon: React.ReactNode; description: string }[] = [
+    {
+      key: "administrativo",
+      label: "Reporte Administrativo",
+      icon: <ClipboardList className="h-4 w-4" />,
+      description: "Asignación de equipos por usuario y departamento",
+    },
+    {
+      key: "tecnico",
+      label: "Reporte Técnico",
+      icon: <Cpu className="h-4 w-4" />,
+      description: "Infraestructura: IP, MAC, SO, RAM y procesador",
+    },
+    {
+      key: "ciclo-vida",
+      label: "Ciclo de Vida",
+      icon: <CalendarClock className="h-4 w-4" />,
+      description: "Compras, proveedores y vencimiento de garantías",
+    },
+  ];
+
+  return (
+    <MainLayout
+      breadcrumb={{
+        title: "Reportes",
+        subtitle: "Reportes de Inventario de TI",
+      }}
+    >
+      {() => (
+        <div className="flex flex-col h-full bg-gray-50/30">
+          {/* ===== OMNIBOX FILTER BAR ===== */}
+          <div className="px-6 pt-5 pb-3 bg-white border-b">
+            <div className="flex items-center gap-3">
+              <div className="flex-1">
+                <OmniboxFilter
+                  facets={facets}
+                  chips={filterChips}
+                  onChipsChange={setFilterChips}
+                  searchQuery={searchQuery}
+                  onSearchQueryChange={setSearchQuery}
+                  placeholder="Filtrar por Empresa, Sitio (Hotel), Departamento o buscar..."
+                  pinned={isSearchPinned}
+                  onPinnedChange={setIsSearchPinned}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* ===== KPI CARDS ===== */}
+          <div className="px-6 py-4 bg-white border-b">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Total Equipos */}
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white">
+                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100">
+                  <Package className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-blue-600/80">Total de Equipos</p>
+                  <p className="text-2xl font-bold text-blue-700">{kpis.total}</p>
+                </div>
+              </div>
+
+              {/* En Stock */}
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white">
+                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-emerald-100">
+                  <Warehouse className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-emerald-600/80">En Stock</p>
+                  <p className="text-2xl font-bold text-emerald-700">{kpis.inStock}</p>
+                </div>
+              </div>
+
+              {/* Garantía Vencida */}
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-red-100 bg-gradient-to-br from-red-50 to-white">
+                <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-red-100">
+                  <ShieldAlert className="h-6 w-6 text-red-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-red-600/80">Garantía Vencida</p>
+                  <p className="text-2xl font-bold text-red-700">{kpis.warrantyExpired}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ===== SUB-TABS + EXPORT BUTTONS ===== */}
+          <div className="px-6 py-3 bg-white border-b flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              {subTabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key)}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                    activeTab === tab.key
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                  )}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <input
+                type="file"
+                accept=".csv"
+                ref={csvInputRef}
+                onChange={handleImportCsv}
+                className="hidden"
+              />
+              <Button
+                onClick={() => csvInputRef.current?.click()}
+                disabled={isImporting}
+                size="sm"
+                variant="outline"
+                className="border-blue-300 text-blue-700 hover:bg-blue-50"
+              >
+                {isImporting ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : (
+                  <Upload className="h-4 w-4 mr-2" />
+                )}
+                Importar CSV
+              </Button>
+              <Button
+                onClick={handleExportCsv}
+                disabled={isExporting !== null}
+                size="sm"
+                variant="outline"
+                className="border-emerald-300 text-emerald-700 hover:bg-emerald-50"
+              >
+                {isExporting === "csv" ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : (
+                  <FileText className="h-4 w-4 mr-2" />
+                )}
+                Exportar CSV
+              </Button>
+              <Button
+                onClick={handleExportExcel}
+                disabled={isExporting !== null}
+                size="sm"
+                className="bg-green-600 hover:bg-green-700 text-white"
+              >
+                {isExporting === "excel" ? (
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                ) : (
+                  <FileSpreadsheet className="h-4 w-4 mr-2" />
+                )}
+                Exportar Excel
+              </Button>
+            </div>
+          </div>
+
+          {/* ===== TABLE CONTENT ===== */}
+          <div className="flex-1 overflow-auto px-6 py-4">
+            {isLoading ? (
+              <div className="flex items-center justify-center h-48">
+                <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg border shadow-sm">
+                {/* Tab description */}
+                <div className="px-4 py-3 border-b bg-gray-50/50">
+                  <p className="text-sm text-gray-500">
+                    {subTabs.find((t) => t.key === activeTab)?.description} — Mostrando{" "}
+                    <span className="font-semibold text-gray-700">{filteredAssets.length}</span> registros
+                    {filterChips.length > 0 && " (filtrados)"}
+                  </p>
+                </div>
+
+                {/* ===== REPORTE ADMINISTRATIVO ===== */}
+                {activeTab === "administrativo" && (
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-gray-50">
+                        <TableHead className="font-semibold text-gray-700">Nombre del Equipo</TableHead>
+                        <TableHead className="font-semibold text-gray-700">No. Serie</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Usuario Responsable</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Departamento</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Empresa</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Sitio</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {paginatedAssets.length === 0 ? (
+                        <TableRow>
+                          <TableCell colSpan={7} className="text-center text-gray-500 py-12">
+                            No se encontraron equipos con los filtros aplicados
+                          </TableCell>
+                        </TableRow>
+                      ) : (
+                        paginatedAssets.map((asset) => (
+                          <TableRow key={asset.assetID} className="hover:bg-blue-50/30">
+                            <TableCell className="font-medium text-gray-800">{asset.name}</TableCell>
+                            <TableCell className="font-mono text-sm text-gray-600">
+                              {asset.assetDetail?.serialNum || "N/A"}
+                            </TableCell>
+                            <TableCell className="text-gray-700">{asset.user?.name || "-"}</TableCell>
+                            <TableCell className="text-gray-700">{asset.depart?.Name || "-"}</TableCell>
+                            <TableCell className="text-gray-600 text-sm">{asset.company?.description || "-"}</TableCell>
+                            <TableCell className="text-gray-600 text-sm">{asset.site?.name || "-"}</TableCell>
+                          </TableRow>
+                        ))
+                      )}
+                    </TableBody>
+                  </Table>
+                )}
+
+                {/* ===== REPORTE TÉCNICO ===== */}
+                {activeTab === "tecnico" && (
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-gray-50">
+                        <TableHead className="font-semibold text-gray-700">Nombre del Equipo</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Dirección IP</TableHead>
+                        <TableHead className="font-semibold text-gray-700">MAC Address</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Sistema Operativo</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Memoria RAM</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Procesador</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {paginatedAssets.length === 0 ? (
+                        <TableRow>
+                          <TableCell colSpan={6} className="text-center text-gray-500 py-12">
+                            No se encontraron equipos con los filtros aplicados
+                          </TableCell>
+                        </TableRow>
+                      ) : (
+                        paginatedAssets.map((asset) => (
+                          <TableRow key={asset.assetID} className="hover:bg-blue-50/30">
+                            <TableCell className="font-medium text-gray-800">{asset.name}</TableCell>
+                            <TableCell className="font-mono text-sm text-gray-600">
+                              {asset.assetDetail?.ipAddress || "-"}
+                            </TableCell>
+                            <TableCell className="font-mono text-sm text-gray-600">
+                              {asset.assetDetail?.macAddress || "-"}
+                            </TableCell>
+                            <TableCell className="text-gray-700">
+                              {asset.assetDetail?.operatingSystem || asset.assetDetail?.osName || "-"}
+                            </TableCell>
+                            <TableCell className="text-gray-700">
+                              {asset.assetDetail?.ram || asset.assetDetail?.physicalMemory || "-"}
+                            </TableCell>
+                            <TableCell className="text-gray-700 text-sm">
+                              {asset.assetDetail?.processor || asset.assetDetail?.processorInfo || "-"}
+                            </TableCell>
+                          </TableRow>
+                        ))
+                      )}
+                    </TableBody>
+                  </Table>
+                )}
+
+                {/* ===== REPORTE CICLO DE VIDA ===== */}
+                {activeTab === "ciclo-vida" && (
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-gray-50">
+                        <TableHead className="font-semibold text-gray-700">Nombre del Equipo</TableHead>
+                        <TableHead className="font-semibold text-gray-700">No. Serie</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Proveedor</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Fecha de Compra</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Vencimiento de Garantía</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Estado</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {paginatedAssets.length === 0 ? (
+                        <TableRow>
+                          <TableCell colSpan={7} className="text-center text-gray-500 py-12">
+                            No se encontraron equipos con los filtros aplicados
+                          </TableCell>
+                        </TableRow>
+                      ) : (
+                        paginatedAssets.map((asset) => {
+                          const warrantyDate =
+                            asset.assetDetail?.warrantyExpiryDate ||
+                            asset.assetDetail?.warrantyExpiry ||
+                            asset.assetDetail?.assetExpiryDate;
+                          const purchaseDate =
+                            asset.assetDetail?.purchaseDate ||
+                            asset.assetDetail?.assetACQDate;
+                          const expired = isWarrantyExpired(warrantyDate);
+
+                          return (
+                            <TableRow key={asset.assetID} className="hover:bg-blue-50/30">
+                              <TableCell className="font-medium text-gray-800">{asset.name}</TableCell>
+                              <TableCell className="font-mono text-sm text-gray-600">
+                                {asset.assetDetail?.serialNum || "N/A"}
+                              </TableCell>
+                              <TableCell className="text-gray-700">
+                                {asset.vendor?.name || "-"}
+                              </TableCell>
+                              <TableCell className="text-gray-700 text-sm">
+                                {formatDate(purchaseDate)}
+                              </TableCell>
+                              <TableCell>
+                                <span
+                                  className={cn(
+                                    "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
+                                    !warrantyDate
+                                      ? "bg-gray-100 text-gray-600"
+                                      : expired
+                                      ? "bg-red-100 text-red-700"
+                                      : "bg-green-100 text-green-700"
+                                  )}
+                                >
+                                  {warrantyDate
+                                    ? formatDate(warrantyDate)
+                                    : "Sin registro"}
+                                </span>
+                              </TableCell>
+                              <TableCell>
+                                <span
+                                  className={cn(
+                                    "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium",
+                                    !warrantyDate
+                                      ? "bg-gray-100 text-gray-500"
+                                      : expired
+                                      ? "bg-red-50 text-red-600 border border-red-200"
+                                      : "bg-emerald-50 text-emerald-600 border border-emerald-200"
+                                  )}
+                                >
+                                  {!warrantyDate ? "N/A" : expired ? "Vencida" : "Vigente"}
+                                </span>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })
+                      )}
+                    </TableBody>
+                  </Table>
+                )}
+
+                {/* ===== PAGINATION ===== */}
+                <div className="flex items-center justify-between px-4 py-3 border-t bg-gray-50/50">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <select
+                      value={pageSize}
+                      onChange={(e) => {
+                        setPageSize(Number(e.target.value));
+                        setCurrentPage(1);
+                      }}
+                      className="h-7 rounded border border-gray-300 bg-white px-1 text-sm text-gray-600"
+                    >
+                      {[20, 50, 100].map((size) => (
+                        <option key={size} value={size}>
+                          {size}
+                        </option>
+                      ))}
+                    </select>
+                    <span>
+                      {filteredAssets.length === 0
+                        ? "0 registros"
+                        : `Mostrando ${(currentPage - 1) * pageSize + 1} - ${Math.min(
+                            currentPage * pageSize,
+                            filteredAssets.length
+                          )} de ${filteredAssets.length}`}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                      disabled={currentPage === 1}
+                      className="h-8 w-8 p-0"
+                    >
+                      <ChevronLeft className="h-4 w-4" />
+                    </Button>
+                    {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                      let page: number;
+                      if (totalPages <= 5) {
+                        page = i + 1;
+                      } else if (currentPage <= 3) {
+                        page = i + 1;
+                      } else if (currentPage >= totalPages - 2) {
+                        page = totalPages - 4 + i;
+                      } else {
+                        page = currentPage - 2 + i;
+                      }
+                      return (
+                        <Button
+                          key={page}
+                          variant={currentPage === page ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => setCurrentPage(page)}
+                          className="h-8 w-8 p-0 text-xs"
+                        >
+                          {page}
+                        </Button>
+                      );
+                    })}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                      disabled={currentPage === totalPages}
+                      className="h-8 w-8 p-0"
+                    >
+                      <ChevronRight className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </MainLayout>
+  );
+}
